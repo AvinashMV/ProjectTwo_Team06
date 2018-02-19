@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 /**
  * Lab 2, Team 6
  * @author SER 516, Gary Morris (#78)
+ * @author SER 516, Rishab Mantri (#69)
  */
 public class ServerWindow extends JFrame {
     ServerPanelMain mainPanel;
@@ -14,11 +15,11 @@ public class ServerWindow extends JFrame {
     }
     
     public static void main(String[] args) {
-        JFrame client = new ServerWindow();
+        JFrame server = new ServerWindow();
     }
     
     private void createAndShowGUI() {
-        setTitle("Client (Lab 2, Team 6)");
+        setTitle("Server (Lab 2, Team 6)");
         add(createMainPanel());
         pack();
         setResizable(false);
