@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 /**
  * Lab 2, Team 6
  * @author SER 516, Gary Morris (#78)
+ * @author SER 516, Rishab Mantri (#69)
  */
 public class ServerPanelTop extends JPanel {
     
