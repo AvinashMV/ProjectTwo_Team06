@@ -1,6 +1,3 @@
-import java.awt.Color;
-import java.awt.Dimension;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -14,9 +11,9 @@ public class ClientPanelData extends JPanel {
     }
     
     private void createAndShowGUI() {
-        JLabel test = new JLabel("DATA");
-        test.setPreferredSize(new Dimension(600, 400));
-        setBackground(Color.white);
-        add(test);
+        ClientPanelGraph graph = new ClientPanelGraph();
+        ClientPanelInfo info = new ClientPanelInfo();
+        add(graph);
+        add(info);
     }
 }

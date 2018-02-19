@@ -7,16 +7,16 @@ import javax.swing.JPanel;
  * Lab 2, Team 6
  * @author SER 516, Gary Morris (#78)
  */
-public class ClientPanelTop extends JPanel {
+public class ClientPanelGraph extends JPanel {
     
-    public ClientPanelTop() {
+    public ClientPanelGraph() {
         createAndShowGUI();
     }
     
     private void createAndShowGUI() {
-        JLabel test = new JLabel("TOP");
-        test.setPreferredSize(new Dimension(600, 50));
-        setBackground(Color.pink);
+        JLabel test = new JLabel("GRAPH");
+        test.setPreferredSize(new Dimension(400, 400));
+        setBackground(Color.white);
         add(test);
     }
 }
