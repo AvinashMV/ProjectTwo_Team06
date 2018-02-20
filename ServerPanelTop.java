@@ -18,11 +18,11 @@ public class ServerPanelTop extends JPanel {
     
     private void createAndShowGUI() {
         JLabel test = new JLabel("TOP");
-        JButton button =  new JButton();
+        JButton serverControlButton =  new JButton();
         test.setPreferredSize(new Dimension(600, 50));
         setBackground(Color.red);
-        button.setText("Start/Stop");
+        serverControlButton.setText("Start/Stop");
         add(test);
-        add(button);
+        add(serverControlButton);
     }
 }
