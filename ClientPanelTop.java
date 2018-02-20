@@ -1,5 +1,8 @@
 import java.awt.Color;
 import java.awt.Dimension;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -14,9 +17,17 @@ public class ClientPanelTop extends JPanel {
     }
     
     private void createAndShowGUI() {
-        JLabel test = new JLabel("TOP");
-        test.setPreferredSize(new Dimension(600, 50));
-        setBackground(Color.pink);
+        
+    	JPanel test = new JPanel();
+        test.setPreferredSize(new Dimension(480, 50));
+        //setBackground(Color.pink);
+        
+        JButton startStop = new JButton("Start / Stop");
+        startStop.setBackground(Color.pink);
+        startStop.setBounds(580, 10, 190, 30);
+        startStop.setBorder(BorderFactory.createLineBorder(Color.black));
+        startStop.setPreferredSize(new Dimension(100, 50));
         add(test);
+        add(startStop);
     }
 }

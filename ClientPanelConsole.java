@@ -16,7 +16,7 @@ public class ClientPanelConsole extends JPanel {
     private void createAndShowGUI() {
         JLabel test = new JLabel("CONSOLE");
         test.setPreferredSize(new Dimension(600, 150));
-        setBackground(Color.cyan);
+        setBackground(Color.lightGray);
         add(test);
     }
 }
