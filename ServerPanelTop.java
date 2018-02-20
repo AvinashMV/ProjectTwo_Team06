@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.awt.Dimension;
+
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -16,8 +18,11 @@ public class ServerPanelTop extends JPanel {
     
     private void createAndShowGUI() {
         JLabel test = new JLabel("TOP");
+        JButton button =  new JButton();
         test.setPreferredSize(new Dimension(600, 50));
         setBackground(Color.red);
+        button.setText("Start/Stop");
         add(test);
+        add(button);
     }
 }
