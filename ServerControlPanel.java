@@ -10,7 +10,7 @@ public class ServerControlPanel extends JPanel {
 	}
 
 	private void createAndShowGUI() {
-		setBackground(Color.BLACK);
+		setBackground(StandardColor.SLATE_GREY);
 
 		// TODO Auto-generated method stub
 		

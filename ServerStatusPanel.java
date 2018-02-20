@@ -9,7 +9,7 @@ public class ServerStatusPanel extends JPanel {
 	}
 
 	private void createAndShowGUI() {
-		setBackground(Color.BLUE);
+		setBackground(StandardColor.SLATE_GREY);
 		
 	}
 

@@ -32,7 +32,7 @@ public class ServerPanelData extends JPanel {
 
 	private void createAndShowGUI() {
 		setPreferredSize(new Dimension(400, 400));
-        setBackground(Color.YELLOW);
+        setBackground(StandardColor.PINK);
         serverStatusPanel= new ServerStatusPanel();
         serverControlPanel = new ServerControlPanel();
         JSplitPane splitPane = new JSplitPane();

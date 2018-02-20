@@ -11,17 +11,19 @@ import javax.swing.JPanel;
  * @author SER 516, Rishab Mantri (#69)
  */
 public class ServerPanelTop extends JPanel {
-    
+	JButton serverControlButton;
+	
     public ServerPanelTop() {
         createAndShowGUI();
     }
     
     private void createAndShowGUI() {
         JLabel test = new JLabel("TOP");
-        JButton serverControlButton =  new JButton();
+        serverControlButton =  new JButton();
         test.setPreferredSize(new Dimension(600, 50));
-        setBackground(Color.red);
+        setBackground(StandardColor.SLATE_GREY);
         serverControlButton.setText("Start/Stop");
+        serverControlButton.setBackground(Color.PINK);
         add(test);
         add(serverControlButton);
     }
