@@ -8,6 +8,8 @@
 /ServerPanelConsole.class
 /ServerPanelData.class
 /ServerPanelMain.class
+/ServerStatusPanel.class
+/ServerControlPanel.class
 /ServerPanelTop.class
 /ServerStartStop.class
 /ServerWindow.class
