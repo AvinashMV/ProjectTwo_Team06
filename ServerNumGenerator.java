@@ -1,4 +1,3 @@
-package clientServer.ProjectTwo_Team06;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
