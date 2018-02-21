@@ -1,4 +1,3 @@
-package clientServer.ProjectTwo_Team06;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
