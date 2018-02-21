@@ -19,7 +19,7 @@ public class ClientPanelGraph extends JPanel {
     
     private void createAndShowGUI() {
     	JPanel test = new JPanel();
-        test.setPreferredSize(new Dimension(450, 350));
+        test.setPreferredSize(new Dimension(480, 350));
         test.setBorder(BorderFactory.createLineBorder(Color.black));
         test.setBackground(LIGHTPINK);
         add(test);

@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 /**
  * Lab 2, Team 6
  * @author SER 516, Gary Morris (#78)
+ * @author SER 516, Aman Maheshwari (#66)
  */
 public class ClientPanelTop extends JPanel {
     
@@ -16,12 +17,10 @@ public class ClientPanelTop extends JPanel {
         createAndShowGUI();
     }
     
-    private void createAndShowGUI() {
-    	
+    private void createAndShowGUI() {    	
     	JPanel test = new JPanel();
-        test.setPreferredSize(new Dimension(530, 50));
-        
-        JButton startStop = new JButton("Start / Stop");
+        test.setPreferredSize(new Dimension(560, 50));        
+    	JButton startStop = new JButton("Start / Stop");
         startStop.setBackground(Color.pink);
         startStop.setBorder(BorderFactory.createLineBorder(Color.black));
         startStop.setPreferredSize(new Dimension(100, 50));

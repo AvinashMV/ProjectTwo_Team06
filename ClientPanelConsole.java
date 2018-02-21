@@ -5,6 +5,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
 
 /**
  * Lab 2, Team 6
@@ -19,11 +20,11 @@ public class ClientPanelConsole extends JPanel {
     private void createAndShowGUI() {
         JPanel test = new JPanel();
         JLabel consoleTxt = new JLabel("CONSOLE");
-        //consoleTxt.setHorizontalAlignment(SwingConstants.LEFT);
-        test.setPreferredSize(new Dimension(650, 150));
+        test.setPreferredSize(new Dimension(680, 150));
         test.setBorder(BorderFactory.createLineBorder(Color.black));
         test.setBackground(Color.lightGray);
         test.add(consoleTxt);
+        
         add(test);
     }
 }
