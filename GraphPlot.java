@@ -1,4 +1,3 @@
-package clientServer.ProjectTwo_Team06;
 import java.awt.*;
 import java.awt.font.*;
 import java.awt.geom.*;
