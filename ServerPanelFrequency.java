@@ -20,7 +20,7 @@ public class ServerPanelFrequency extends JPanel{
 	        test.setBackground(StandardColor.LIGHT_BLUE);
 	        test.setBorder(BorderFactory.createLineBorder(Color.black));
 	        
-	        //added text panel where the highest value will go.
+	        //added text panel where the frequency value will go.
 	        JTextPane highTxt = new JTextPane();
 	        highTxt.setBorder(BorderFactory.createLineBorder(Color.black));
 	        highTxt.setBackground(StandardColor.PINK);
