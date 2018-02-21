@@ -1,3 +1,4 @@
+package clientServer.ProjectTwo_Team06;
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -21,7 +22,7 @@ public class ServerPanelTop extends JPanel {
         JLabel test = new JLabel("TOP");
         serverControlButton =  new JButton();
         test.setPreferredSize(new Dimension(600, 50));
-        setBackground(StandardColor.SLATE_GREY);
+        setBackground(StandardColor.LIGHT_BLUE);
         serverControlButton.setText("Start/Stop");
         serverControlButton.setBackground(Color.PINK);
         add(test);

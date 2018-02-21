@@ -1,3 +1,4 @@
+package clientServer.ProjectTwo_Team06;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 

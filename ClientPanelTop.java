@@ -1,3 +1,4 @@
+package clientServer.ProjectTwo_Team06;
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -18,9 +19,10 @@ public class ClientPanelTop extends JPanel {
     
     private void createAndShowGUI() {
         
+    	setBackground(StandardColor.SLATE_GREY);
     	JPanel test = new JPanel();
         test.setPreferredSize(new Dimension(480, 50));
-        //setBackground(Color.pink);
+        test.setBackground(StandardColor.SLATE_GREY);
         
         JButton startStop = new JButton("Start / Stop");
         startStop.setBackground(Color.pink);
