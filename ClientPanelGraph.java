@@ -1,7 +1,6 @@
+//package clientServer.ProjectTwo_Team06;
 import java.awt.Color;
 import java.awt.Dimension;
-
-import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -11,17 +10,14 @@ import javax.swing.JPanel;
  */
 public class ClientPanelGraph extends JPanel {
     
-	public Color LIGHTPINK = new Color(255,182,193);
-	
     public ClientPanelGraph() {
         createAndShowGUI();
     }
     
     private void createAndShowGUI() {
-    	JPanel test = new JPanel();
-        test.setPreferredSize(new Dimension(480, 350));
-        test.setBorder(BorderFactory.createLineBorder(Color.black));
-        test.setBackground(LIGHTPINK);
+        JLabel test = new JLabel("GRAPH");
+        test.setPreferredSize(new Dimension(400, 400));
+        setBackground(Color.white);
         add(test);
     }
 }

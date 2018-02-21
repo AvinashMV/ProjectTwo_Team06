@@ -1,8 +1,10 @@
+//package clientServer.ProjectTwo_Team06;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.net.MalformedURLException;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
@@ -35,7 +37,12 @@ public class ServerPanelData extends JPanel {
 	private void createAndShowGUI() {
 		setPreferredSize(new Dimension(400, 400));
         setBackground(StandardColor.PINK);
-        serverStatusPanel= new ServerStatusPanel();
+        try {
+			serverStatusPanel= new ServerStatusPanel();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         serverControlPanel = new ServerControlPanel();
         JSplitPane splitPane = new JSplitPane();
     	Border line = BorderFactory.createLineBorder(StandardColor.LIGHT_BLUE,5);

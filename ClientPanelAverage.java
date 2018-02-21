@@ -14,10 +14,6 @@ import javax.swing.JTextPane;
  */
 public class ClientPanelAverage extends JPanel {
     
-	public Color LIGHTBLUE = new Color(173,216,230);
-
-    public Color LIGHTPINK = new Color(255,182,193);
-
     public ClientPanelAverage() {
             createAndShowGUI();
     }
@@ -29,13 +25,13 @@ public class ClientPanelAverage extends JPanel {
         avgLabel.setFont(new Font("SansSerif", Font.BOLD, 15));
         avgLabel.setSize(85, 60);
         test.setPreferredSize(new Dimension(85, 60));
-        test.setBackground(LIGHTBLUE);
+        test.setBackground(StandardColor.LIGHT_BLUE);
         test.setBorder(BorderFactory.createLineBorder(Color.black));
         
         //added text panel where the average value will go.
         JTextPane avgText = new JTextPane();
         avgText.setBorder(BorderFactory.createLineBorder(Color.black));
-        avgText.setBackground(LIGHTPINK);
+        avgText.setBackground(StandardColor.PINK);
         avgText.setPreferredSize(new Dimension(85, 60));
         avgText.setEditable(false);
         

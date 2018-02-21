@@ -1,10 +1,10 @@
+//package clientServer.ProjectTwo_Team06;
 import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
 /**
@@ -18,13 +18,13 @@ public class ClientPanelConsole extends JPanel {
     }
     
     private void createAndShowGUI() {
-        JPanel test = new JPanel();
-        JLabel consoleTxt = new JLabel("CONSOLE");
-        test.setPreferredSize(new Dimension(680, 150));
-        test.setBorder(BorderFactory.createLineBorder(Color.black));
-        test.setBackground(Color.lightGray);
-        test.add(consoleTxt);
-        
+    	Border line = BorderFactory.createLineBorder(StandardColor.LIGHT_BLUE,5);
+    	Border loweredbevel = BorderFactory.createLoweredBevelBorder();
+    	setBorder( BorderFactory.createCompoundBorder(
+                line, loweredbevel));
+        JLabel test = new JLabel("CONSOLE");
+        test.setPreferredSize(new Dimension(600, 150));
+        setBackground(StandardColor.SLATE_GREY);
         add(test);
     }
 }

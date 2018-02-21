@@ -1,3 +1,4 @@
+//package clientServer.ProjectTwo_Team06;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -18,11 +19,7 @@ import javax.swing.JTextPane;
 public class ClientPanelChannels extends JPanel {
     
 	private String[] valuesForDropDown = new String[] {"1", "2", "3", "4", "5"};
-	
-	public Color LIGHTBLUE = new Color(173,216,230);
-
-    public Color LIGHTPINK = new Color(255,182,193);
-
+    
     public ClientPanelChannels() {
         createAndShowGUI();
     }
@@ -34,7 +31,7 @@ public class ClientPanelChannels extends JPanel {
         channelLabel.setFont(new Font("SansSerif", Font.BOLD, 15));
         channelLabel.setSize(85, 60);
         test.setPreferredSize(new Dimension(85, 60));
-        test.setBackground(LIGHTPINK);
+        test.setBackground(StandardColor.PINK);
         test.setBorder(BorderFactory.createLineBorder(Color.black));
         
         //added text panel where the lowest value will go.
@@ -42,7 +39,7 @@ public class ClientPanelChannels extends JPanel {
         channelDD.setPreferredSize(new Dimension(85,60));
         channelDD.setVisible(true);
         channelDD.setBorder(BorderFactory.createLineBorder(Color.black));
-        channelDD.setBackground(LIGHTBLUE);
+        channelDD.setBackground(StandardColor.LIGHT_BLUE);
         channelDD.addActionListener(new ActionListener() {
 
         	@Override
