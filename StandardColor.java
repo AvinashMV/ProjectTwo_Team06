@@ -1,4 +1,3 @@
-package clientServer.ProjectTwo_Team06;
 import java.awt.Color;
 
 public class StandardColor {
