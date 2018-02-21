@@ -34,6 +34,7 @@ public class ClientWindow extends JFrame {
     
     private void centerGUI(JFrame frame) {
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+        //frame.setSize(700, 700);
         int w = frame.getSize().width;
         int h = frame.getSize().height;
         int x = (d.width - w) / 2;

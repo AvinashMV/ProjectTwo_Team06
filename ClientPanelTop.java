@@ -17,14 +17,12 @@ public class ClientPanelTop extends JPanel {
     }
     
     private void createAndShowGUI() {
-        
+    	
     	JPanel test = new JPanel();
-        test.setPreferredSize(new Dimension(480, 50));
-        //setBackground(Color.pink);
+        test.setPreferredSize(new Dimension(530, 50));
         
         JButton startStop = new JButton("Start / Stop");
         startStop.setBackground(Color.pink);
-        startStop.setBounds(580, 10, 190, 30);
         startStop.setBorder(BorderFactory.createLineBorder(Color.black));
         startStop.setPreferredSize(new Dimension(100, 50));
         add(test);

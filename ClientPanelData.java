@@ -1,3 +1,7 @@
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 /**
@@ -6,14 +10,19 @@ import javax.swing.JPanel;
  */
 public class ClientPanelData extends JPanel {
     
+	public Color LIGHTPINK = new Color(255,182,193);
+	
     public ClientPanelData() {
         createAndShowGUI();
     }
     
     private void createAndShowGUI() {
-        ClientPanelGraph graph = new ClientPanelGraph();
-        ClientPanelInfo info = new ClientPanelInfo();
-        add(graph);
+    	ClientPanelInfo info = new ClientPanelInfo();
+    	ClientPanelGraph graph = new ClientPanelGraph();
+    	//add(createAndShowGraph());
+		add(graph);
         add(info);
     }
-}
+       
+ }
+

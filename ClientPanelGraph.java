@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.awt.Dimension;
+
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -9,14 +11,17 @@ import javax.swing.JPanel;
  */
 public class ClientPanelGraph extends JPanel {
     
+	public Color LIGHTPINK = new Color(255,182,193);
+	
     public ClientPanelGraph() {
         createAndShowGUI();
     }
     
     private void createAndShowGUI() {
-        JLabel test = new JLabel("GRAPH");
-        test.setPreferredSize(new Dimension(400, 400));
-        setBackground(Color.white);
+    	JPanel test = new JPanel();
+        test.setPreferredSize(new Dimension(450, 350));
+        test.setBorder(BorderFactory.createLineBorder(Color.black));
+        test.setBackground(LIGHTPINK);
         add(test);
     }
 }
