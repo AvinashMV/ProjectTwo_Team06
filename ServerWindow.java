@@ -1,4 +1,3 @@
-package clientServer.ProjectTwo_Team06;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
