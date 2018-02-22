@@ -22,7 +22,7 @@ public class ServerStatusPanel extends JPanel {
 	}
 
 	private void createAndShowGUI() throws MalformedURLException {
-		 URL url = new URL("https://daks2k3a4ib2z.cloudfront.net/5795e690412fc21f2b67d4af/58a0943433b78e327d496a46_loading_5.gif");
+		 URL url = new URL("https://mir-s3-cdn-cf.behance.net/project_modules/source/e2a03d31641415.565a78be188d4.gif");
 	     Icon icon = new ImageIcon(url);
 		setBackground(StandardColor.SLATE_GREY);
 		JLabel picLabel = new JLabel(icon);
