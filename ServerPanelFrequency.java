@@ -6,30 +6,41 @@ import java.awt.Font;
 import javax.swing.*;
 
 public class ServerPanelFrequency extends JPanel{
+    
+    JPanel frequencyPanel;
+    JLabel frequencyLabel;
+    JTextPane frequencyTxt;
+    int frequency;
 	 public ServerPanelFrequency() {
 	        createAndShowGUI();
 	    }
 	    
 	    private void createAndShowGUI() {
-	        JPanel test = new JPanel();
-	        JLabel highLabel = new JLabel("<html>Frequency<br>(Hz)</html>");
-	        
-	        highLabel.setFont(new Font("SansSerif", Font.BOLD, 15));
-	        highLabel.setSize(85, 60);
-	        test.setPreferredSize(new Dimension(120, 60));
-	        test.setBackground(StandardColor.LIGHT_BLUE);
-	        test.setBorder(BorderFactory.createLineBorder(Color.black));
+	        frequencyPanel = new JPanel();
+	        frequencyLabel = new JLabel("<html>Frequency<br>(Hz)</html>");
+	        frequencyLabel.setFont(new Font("SansSerif", Font.BOLD, 15));
+	        frequencyLabel.setSize(85, 60);
+	        frequencyPanel.setPreferredSize(new Dimension(120, 60));
+	        frequencyPanel.setBackground(StandardColor.LIGHT_BLUE);
+	        frequencyPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 	        
 	        //added text panel where the frequency value will go.
-	        JTextPane highTxt = new JTextPane();
-	        highTxt.setBorder(BorderFactory.createLineBorder(Color.black));
-	        highTxt.setBackground(StandardColor.PINK);
-	        highTxt.setPreferredSize(new Dimension(120, 60));
-	        highTxt.setEditable(false);
+	        frequencyTxt = new JTextPane();
+                frequencyTxt.setText("4");
+	        frequencyTxt.setBorder(BorderFactory.createLineBorder(Color.black));
+	        frequencyTxt.setBackground(StandardColor.PINK);
+	        frequencyTxt.setPreferredSize(new Dimension(120, 60));
+	        frequencyTxt.setEditable(false);
 	        
-	        add(test);
-	        test.add(highLabel);
-	        add(highTxt);
+	        add(frequencyPanel);
+	        frequencyPanel.add(frequencyLabel);
+	        add(frequencyTxt);
 	    }
+            
+                public int getFrequency()
+                {
+                    frequency= Integer.parseInt(frequencyTxt.getText());
+                    return frequency;
+                }
 
 }
