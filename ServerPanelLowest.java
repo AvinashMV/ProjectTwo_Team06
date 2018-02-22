@@ -10,7 +10,7 @@ public class ServerPanelLowest extends JPanel{
     
     JPanel lowestValuePanel;
     JLabel lowLabel;
-    JTextPane lowTxt;
+    JFormattedTextField lowTxt;
     int lowestValue;
 
 	 public ServerPanelLowest() {
@@ -28,8 +28,8 @@ public class ServerPanelLowest extends JPanel{
 	        lowestValuePanel.setBorder(BorderFactory.createLineBorder(Color.black));
 	        
 	        //added text panel where the highest value will go.
-	        lowTxt = new JTextPane();
-                lowTxt.setText("0");
+	        lowTxt = new JFormattedTextField(ServerHelper.formatter());
+            lowTxt.setText("0");
 	        lowTxt.setBorder(BorderFactory.createLineBorder(Color.black));
 	        lowTxt.setBackground(StandardColor.LIGHT_BLUE);
 	        lowTxt.setPreferredSize(new Dimension(120, 60));
