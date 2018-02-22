@@ -8,9 +8,9 @@ public class ServerDataManager {
 	
 	private static volatile ServerDataManager serverDataManager;
 	private static Object mutex = new Object();
-	private static int channels;
-	private static long highestValue;
-	private static long lowestValue;
+	private static int channels = 1;
+	private static long highestValue = 1024;
+	private static long lowestValue = 0;
 	
 	
 	
@@ -44,6 +44,7 @@ public class ServerDataManager {
 	}
 
 	public static void setHighestValue(long highestValue) {
+		System.out.println("afsaf");
 		ServerDataManager.highestValue = highestValue;
 	}
 

@@ -3,10 +3,12 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class ServerPanelLowest extends JPanel{
+public class ServerPanelLowest extends JPanel implements ActionListener{
     
     JPanel lowestValuePanel;
     JLabel lowLabel;
@@ -30,14 +32,15 @@ public class ServerPanelLowest extends JPanel{
 	        //added text panel where the highest value will go.
 	        lowTxt = new JFormattedTextField(ServerHelper.formatter());
             lowTxt.setText("0");
+            lowTxt.addActionListener(this);
 	        lowTxt.setBorder(BorderFactory.createLineBorder(Color.black));
 	        lowTxt.setBackground(StandardColor.LIGHT_BLUE);
 	        lowTxt.setPreferredSize(new Dimension(120, 60));
-	        lowTxt.setEditable(true);
-                
+	        lowTxt.setEditable(true);  
 	        add(lowestValuePanel);
 	        lowestValuePanel.add(lowLabel);
 	        add(lowTxt);
+	        	
 	    }
             
             public int getLowestValue()
@@ -47,5 +50,14 @@ public class ServerPanelLowest extends JPanel{
                 return lowestValue;
             }
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFormattedTextField lowText = (JFormattedTextField) e.getSource();
+				Long low = (Long) lowText.getValue();
+				ServerDataManager.getInstance().setLowestValue(low);
+		
+				
+			}
 
+        
 }

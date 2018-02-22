@@ -2,12 +2,14 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 
 import javax.swing.*;
 import javax.swing.text.NumberFormatter;
 
-public class ServerPanelHighest extends JPanel{
+public class ServerPanelHighest extends JPanel implements ActionListener{
 	
     JPanel highestValuePanel;
     JLabel highLabel;
@@ -31,6 +33,7 @@ public class ServerPanelHighest extends JPanel{
 	        //added text panel where the highest value will go.
 	        highTxt = new JFormattedTextField(ServerHelper.formatter());
             highTxt.setText("1024");
+            highTxt.addActionListener(this);
 	        highTxt.setBorder(BorderFactory.createLineBorder(Color.black));
 	        highTxt.setBackground(StandardColor.PINK);
 	        highTxt.setPreferredSize(new Dimension(120, 60));
@@ -49,5 +52,15 @@ public class ServerPanelHighest extends JPanel{
             highestValue= Integer.parseInt(highTxt.getText());
             return highestValue;
         }
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			System.out.println("afsaf");
+			JFormattedTextField highText = (JFormattedTextField) e.getSource();
+			Long high = (Long) highText.getValue();
+			ServerDataManager.getInstance().setHighestValue(high);
+			System.out.println(ServerDataManager.getInstance().generateNumbers());
+			
+		}
 
 }
