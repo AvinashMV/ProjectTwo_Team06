@@ -7,9 +7,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 import javafx.scene.layout.Border;
-
 
 /**
  * This class implements a console panel to display any status , erros related to server.
@@ -17,7 +15,6 @@ import javafx.scene.layout.Border;
  * @author avinash mathad vijayakumar(#71).
  *
  */
-
 public class ServerDisplayConsole{
 	
 	private JPanel panel_console;
