@@ -70,20 +70,4 @@ public class ServerDataManager {
 		result = result.substring(0, result.length() - ",".length());
 		return result;
 	}
-	
-	
-	
-	public static void main(String args[]) {
-		ServerDataManager s = ServerDataManager.getInstance();
-		s.setChannels(2);
-		s.setHighestValue(2000);
-		s.setLowestValue(1998);
-		System.out.println(s.generateNumbers());
-		System.out.println(s.generateNumbers());
-		ServerDataManager d = ServerDataManager.getInstance();
-		System.out.print(d.generateNumbers());
-	}
-	
-	
-
 }
