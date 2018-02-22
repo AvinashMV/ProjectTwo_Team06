@@ -2,14 +2,16 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.text.NumberFormat;
 
 import javax.swing.*;
+import javax.swing.text.NumberFormatter;
 
 public class ServerPanelHighest extends JPanel{
 	
     JPanel highestValuePanel;
     JLabel highLabel;
-    JTextPane highTxt;
+    JFormattedTextField highTxt;
     int highestValue;
     
 	 public ServerPanelHighest() {
@@ -27,22 +29,25 @@ public class ServerPanelHighest extends JPanel{
 	        highestValuePanel.setBorder(BorderFactory.createLineBorder(Color.black));
 	        
 	        //added text panel where the highest value will go.
-	        highTxt = new JTextPane();
-                highTxt.setText("1024");
+	        highTxt = new JFormattedTextField(ServerHelper.formatter());
+            highTxt.setText("1024");
 	        highTxt.setBorder(BorderFactory.createLineBorder(Color.black));
 	        highTxt.setBackground(StandardColor.PINK);
 	        highTxt.setPreferredSize(new Dimension(120, 60));
 	        highTxt.setEditable(true);
-	        
 	        add(highestValuePanel);
 	        highestValuePanel.add(highLabel);
 	        add(highTxt);
 	    }
             
-                public int getHighestValue()
-                {
-                    highestValue= Integer.parseInt(highTxt.getText());
-                    return highestValue;
-                }
+        
+
+		
+
+		public int getHighestValue()
+        {
+            highestValue= Integer.parseInt(highTxt.getText());
+            return highestValue;
+        }
 
 }

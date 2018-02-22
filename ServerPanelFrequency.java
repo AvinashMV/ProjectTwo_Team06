@@ -9,7 +9,7 @@ public class ServerPanelFrequency extends JPanel{
     
     JPanel frequencyPanel;
     JLabel frequencyLabel;
-    JTextPane frequencyTxt;
+    JFormattedTextField frequencyTxt;
     int frequency;
 	 public ServerPanelFrequency() {
 	        createAndShowGUI();
@@ -25,8 +25,8 @@ public class ServerPanelFrequency extends JPanel{
 	        frequencyPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 	        
 	        //added text panel where the frequency value will go.
-	        frequencyTxt = new JTextPane();
-                frequencyTxt.setText("4");
+	        frequencyTxt = new JFormattedTextField(ServerHelper.formatter());
+            frequencyTxt.setText("4");
 	        frequencyTxt.setBorder(BorderFactory.createLineBorder(Color.black));
 	        frequencyTxt.setBackground(StandardColor.PINK);
 	        frequencyTxt.setPreferredSize(new Dimension(120, 60));
