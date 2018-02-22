@@ -13,7 +13,6 @@ import javafx.scene.layout.Border;
  * This class implements a console panel to display any status , erros related to server.
  * For lab2, 516
  * @author avinash mathad vijayakumar(#71).
- *
  */
 public class ServerDisplayConsole{
 	
@@ -52,7 +51,6 @@ public class ServerDisplayConsole{
 	/**
 	 * This is for testing and demo usage purpose.
 	 * JPanel is added to JFrame and displayed.
-	 * 
 	 * @param args: Not used.
 	 */
 	public static void main(String[] args) {
