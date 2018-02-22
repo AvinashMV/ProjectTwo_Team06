@@ -1,13 +1,12 @@
 import java.net.Socket;
 /**
- *
- * @author P075 Rishabh Modi
- *
+ * Lab 2, Team 6
+ * @author SER 516, Rishabh Modi (#75)
  */
 public class ClientStartStop
 {
     Socket clientsocket = null;
-
+    boolean flag=true;
     void start()
     {
         try
