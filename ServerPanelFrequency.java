@@ -30,7 +30,7 @@ public class ServerPanelFrequency extends JPanel{
 	        frequencyTxt.setBorder(BorderFactory.createLineBorder(Color.black));
 	        frequencyTxt.setBackground(StandardColor.PINK);
 	        frequencyTxt.setPreferredSize(new Dimension(120, 60));
-	        frequencyTxt.setEditable(false);
+	        frequencyTxt.setEditable(true);
 	        
 	        add(frequencyPanel);
 	        frequencyPanel.add(frequencyLabel);
