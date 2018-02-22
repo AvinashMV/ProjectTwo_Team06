@@ -11,16 +11,13 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Serversocket {
 
-	public static void main (String [] args){
+	private ServerSocket serversocket = null;
+	private Socket clientSocket = null;
+    private PrintStream output = null;
+    
+	Serversocket (int frequency){
 		
-		int min = 1;
-		int max = 1024;
-		Integer randomNum;
-		
-		ServerSocket serversocket = null;
-		Socket clientSocket = null;
-	    PrintStream output = null;
-	    
+		int sleepTime = 1000/frequency;
 	    try {
 	    		serversocket = new ServerSocket(1024);
 	        }
@@ -35,9 +32,9 @@ public class Serversocket {
 	        
 	        while (true) {
 	        		
-	        		randomNum = ThreadLocalRandom.current().nextInt(min, max + 1);
-			    	Thread.sleep(1000);
-	        		output.println(randomNum); 
+	        		ServerDataManager dataGenerator = ServerDataManager.getInstance(); 
+			    	Thread.sleep(sleepTime);
+	        		output.println(dataGenerator.generateNumbers()); 
 	           }
 	        }
 	    catch (IOException e) {
@@ -46,15 +43,22 @@ public class Serversocket {
 	    catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+
+	}
+	
+	public boolean ServersocketClose() {
 	    
 	    try {
 	        output.close();
 	        clientSocket.close();
 	        serversocket.close();
+	        
+	        return true;
 	     } 
 	     catch (IOException e) {
 	        System.out.println(e);
+	        return false;
 	     }
-
 	}
+	 
 }
