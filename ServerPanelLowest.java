@@ -7,32 +7,45 @@ import java.awt.Font;
 import javax.swing.*;
 
 public class ServerPanelLowest extends JPanel{
+    
+    JPanel lowestValuePanel;
+    JLabel lowLabel;
+    JTextPane lowTxt;
+    int lowestValue;
 
 	 public ServerPanelLowest() {
 	        createAndShowGUI();
 	    }
 	    
 	    private void createAndShowGUI() {
-	        JPanel test = new JPanel();
-	        JLabel lowLabel = new JLabel("<html>Lowest<br>Value:</html>");
+	        lowestValuePanel = new JPanel();
+	        lowLabel = new JLabel("<html>Lowest<br>Value:</html>");
 	        
 	        lowLabel.setFont(new Font("SansSerif", Font.BOLD, 15));
 	        lowLabel.setSize(85, 60);
-	        test.setPreferredSize(new Dimension(120, 60));
-	        test.setBackground(StandardColor.PINK);
-	        test.setBorder(BorderFactory.createLineBorder(Color.black));
+	        lowestValuePanel.setPreferredSize(new Dimension(120, 60));
+	        lowestValuePanel.setBackground(StandardColor.PINK);
+	        lowestValuePanel.setBorder(BorderFactory.createLineBorder(Color.black));
 	        
 	        //added text panel where the highest value will go.
-	        JTextPane lowTxt = new JTextPane();
+	        lowTxt = new JTextPane();
+                lowTxt.setText("0");
 	        lowTxt.setBorder(BorderFactory.createLineBorder(Color.black));
 	        lowTxt.setBackground(StandardColor.LIGHT_BLUE);
 	        lowTxt.setPreferredSize(new Dimension(120, 60));
-	        lowTxt.setEditable(false);
-	        
-	        add(test);
-	        test.add(lowLabel);
+	        lowTxt.setEditable(true);
+                
+	        add(lowestValuePanel);
+	        lowestValuePanel.add(lowLabel);
 	        add(lowTxt);
 	    }
+            
+            public int getLowestValue()
+            {
+                
+                lowestValue= Integer.parseInt(lowTxt.getText());
+                return lowestValue;
+            }
 
 
 }
