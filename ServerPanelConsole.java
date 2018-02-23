@@ -31,7 +31,7 @@ public class ServerPanelConsole extends JPanel implements Observer {
         setBackground(StandardColor.SLATE_GREY);
         consoleLogs = new JTextArea();
         consoleLogs.setPreferredSize(new Dimension(600, 150));
-        consoleLogs.setText("Server is not running \n");
+        consoleLogs.setText("Server is not running. \n");
         add(test);
         add(consoleLogs);
     }
@@ -42,10 +42,10 @@ public class ServerPanelConsole extends JPanel implements Observer {
 			String message = (String) arg;
 			System.out.println(message);
 			if(message.equals("Start")) {
-				message = "The server has been started \n";
+				message = "The server has been started. \n";
 			}
 			else {
-				message = "The server has been stopped \n";				
+				message = "The server has been stopped.g \n";				
 			}
 			consoleLogs.append(message);			
 		}
