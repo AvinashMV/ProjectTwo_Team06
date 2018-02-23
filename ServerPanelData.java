@@ -39,6 +39,7 @@ public class ServerPanelData extends JPanel {
         setBackground(StandardColor.PINK);
         try {
 			serverStatusPanel= new ServerStatusPanel();
+			MessageHandler.getInstance().setServerStatusPanel(serverStatusPanel);
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
