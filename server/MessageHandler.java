@@ -1,6 +1,7 @@
 package server;
 
 /**
+ * The MessageHandler class
  * 
  * @author
  * @version 1.0

@@ -10,6 +10,7 @@ import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
 /**
+ * The ServerConsolePanel class
  * 
  * @author
  * @version 1.0

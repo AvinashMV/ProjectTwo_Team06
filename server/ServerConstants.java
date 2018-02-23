@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Dimension;
 
 /**
+ * The MessageHandler class
  * 
  * @author
  * @version 1.0

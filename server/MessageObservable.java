@@ -3,6 +3,7 @@ package server;
 import java.util.Observable;
 
 /**
+ * The MessageHandler class
  * 
  * @author
  * @version 1.0

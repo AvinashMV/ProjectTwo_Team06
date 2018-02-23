@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
+ * The MessageHandler class
  * 
  * @author
  * @version 1.0

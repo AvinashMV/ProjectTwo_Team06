@@ -9,11 +9,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
+ * The ServerControlPanel class
  * 
  * @author
  * @version 1.0
  */
-public class ServerControlsPanel extends JPanel {
+public class ServerControlPanel extends JPanel {
 	private JPanel highestValuePanel;
 	private JPanel lowestValuePanel;
 	private JPanel frequencyValuePanel;
@@ -25,7 +26,7 @@ public class ServerControlsPanel extends JPanel {
 	private JFormattedTextField frequencyText;
 	private HashMap<String, String> boundaryValues = new HashMap<>();
 
-	public ServerControlsPanel() {
+	public ServerControlPanel() {
 		highestValuePanel = new JPanel();
 		lowestValuePanel = new JPanel();
 		frequencyValuePanel = new JPanel();

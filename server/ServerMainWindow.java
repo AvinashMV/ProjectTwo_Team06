@@ -10,13 +10,14 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 /**
+ * The ServerMainWindow class
  * 
  * @author
  * @version 1.0
  */
 public class ServerMainWindow extends JFrame {
 
-	private ServerControlsPanel serverControlPanel;
+	private ServerControlPanel serverControlPanel;
 	private ServerConsolePanel serverConsolePanel;
 	private ServerStatusPanel serverStatusPanel;
 	private ServerTopPanel serverTopPanel;
@@ -26,7 +27,7 @@ public class ServerMainWindow extends JFrame {
 	public ServerMainWindow() {
 		serverConsolePanel = new ServerConsolePanel();
 		MessageHandler.getInstance().setServerPanelConsole(serverConsolePanel);
-		serverControlPanel = new ServerControlsPanel();
+		serverControlPanel = new ServerControlPanel();
 		serverStatusPanel = new ServerStatusPanel();
 		MessageHandler.getInstance().setServerStatusPanel(serverStatusPanel);
 		serverTopPanel = new ServerTopPanel();
@@ -62,17 +63,17 @@ public class ServerMainWindow extends JFrame {
 	}
 
 	private void centerGUI(JFrame frame) {
-		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 		int w = frame.getSize().width;
 		int h = frame.getSize().height;
-		int x = (d.width - w) / 2;
-		int y = (d.height - h) / 2;
+		int x = (dimension.width - w) / 2;
+		int y = (dimension.height - h) / 2;
 		frame.setLocation(x, y);
 		frame.setSize(800, 700);
 	}
 
 	public static void main(String[] args) {
-		ServerMainWindow mainWindow = new ServerMainWindow();
-		mainWindow.createServerWindow();
+		ServerMainWindow serverMainWindow = new ServerMainWindow();
+		serverMainWindow.createServerWindow();
 	}
 }

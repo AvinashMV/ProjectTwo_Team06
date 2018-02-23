@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
+ * The ServerTopPanel class
  * 
  * @author
  * @version 1.0

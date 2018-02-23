@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
+ * The MessageHandler class
  * 
  * @author
  * @version 1.0
