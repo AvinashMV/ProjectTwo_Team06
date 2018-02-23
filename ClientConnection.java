@@ -5,18 +5,23 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-public class ClientConnection {
-	Socket clientsocket;
-    Map<Integer,ArrayList<Integer>> hmap;	//HashMap to store values for each channel
-    int portNumber= 1250;
-    volatile String inputMessage;
+/**
+ * Lab 2, Team 6
+ * @author SER 516, Abhishek Marathe (#70)
+ */
+public class ClientConnection implements Runnable{
+	private Socket clientsocket;
+    Map<Integer,ArrayList<Integer>> channelData;
+    private int portNumber= 1250;
+    private volatile String inputMessage;
+    private int channelCount;
     
-    ClientConnection(){
-        Map<Integer,ArrayList<Integer>> hmap = new HashMap<Integer,ArrayList<Integer>>();
+    ClientConnection(int channelcount){
+    	channelCount = channelcount;
+        channelData = new HashMap<Integer,ArrayList<Integer>>();
     }
-    //call start on new thread
-    void start(int channelCount)
+    
+    public void run()
     {
     	BufferedReader input;
         try
@@ -42,23 +47,23 @@ public class ClientConnection {
             e.printStackTrace();
         }
     }
-    //call getStream after specified frequency to get data
-    Map<Integer, ArrayList<Integer>> getStream(){
+
+    public Map<Integer, ArrayList<Integer>> getStream(){
 
     	String in = inputMessage;
     	String []inputs = in.split(",");
     	ArrayList<Integer> arr;
     	for (int i = 0; i < inputs.length; i++) {
-			if(hmap.size() >= i)
-				arr = hmap.get(i);
+			if(channelData.size() >= i)
+				arr = channelData.get(i);
 			else
 			{
 				arr = new ArrayList<Integer>();
 			}
 			arr.add(Integer.parseInt(inputs[i]));
-			hmap.put(i, arr);
+			channelData.put(i, arr);
 		}
-    	return hmap;
+    	return channelData;
     	
     }
     
