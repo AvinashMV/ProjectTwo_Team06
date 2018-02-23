@@ -12,6 +12,7 @@ import javax.swing.JTextPane;
  * Lab 2, Team 6
  * @author SER 516, Gary Morris (#78)
  * @author SER 516, Aman Maheshwari (#66)
+ * @author SER 516, Vimal Menon (#73)
  */
 public class ClientPanelLowest extends JPanel {
     
@@ -39,5 +40,15 @@ public class ClientPanelLowest extends JPanel {
         add(test);
         test.add(lowLabel);
         add(lowTxt);
+    }
+    
+    public static int getMinValue(int[] array) {
+        int minValue = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < minValue) {
+                minValue = array[i];
+            }
+        }
+        return minValue;
     }
 }
