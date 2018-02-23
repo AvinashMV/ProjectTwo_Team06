@@ -1,6 +1,8 @@
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.JPanel;
 
@@ -9,12 +11,15 @@ public class ClientGraphParser {
 	ClientDataManager clientDataManager = ClientDataManager.getInstance();
 	private ArrayList<ArrayList<Integer>> dump;
 	private ArrayList<ArrayList<Integer>> inputData;
+	private ArrayList<Color> colors = new ArrayList<>();
 	public ClientGraphParser(int frequency) {
 		this.frequency = frequency;
 		System.out.println("MY frequency is" + frequency);
 	}
 	
 	public void addData() {
+		dump = clientDataManager.getDump();
+		setRandomColors(dump.size());
 		while(true) {
 			dump = clientDataManager.getDump();
 			
@@ -30,8 +35,7 @@ public class ClientGraphParser {
 				}
 			}
 			
-			System.out.println(inputData.get(0).get(inputData.get(0).size() -1) + "Values from input" );
-			GraphPlot graphPlot = new GraphPlot(inputData.get(0));
+			GraphPlot graphPlot = new GraphPlot(inputData,colors);
 			ClientPanelInfo info = ClientDataManager.getInstance().getInfo();
 			graphPlot.setPreferredSize(new Dimension(500,500));
 			JPanel panelData = clientDataManager.getPanelData();
@@ -41,14 +45,7 @@ public class ClientGraphParser {
 			panelData.add(info);
 			panelData.repaint();
 			panelData.revalidate();
-//			
-//			ClientPanelGraph
-//
-//			panelData.add(graphPlot);
-//			panelData.repaint();
-//			panelData.validate();
-			
-		
+					
 			try {
 				Thread.sleep(frequency);
 			} catch (InterruptedException e) {
@@ -57,4 +54,19 @@ public class ClientGraphParser {
 			}
 		}
 	}
+	
+	private void setRandomColors(int size) {
+		for(int i=0; i < size; i++ ) {
+			colors.add(generateRandomColor());
+		}
+		
+	}
+
+	private Color generateRandomColor() {
+		Random rand = new Random();
+		float r = rand.nextFloat();
+		float g = rand.nextFloat();
+		float b = rand.nextFloat();
+		return new Color(r, g, b);
+}
 }

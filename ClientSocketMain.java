@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import javax.swing.JComboBox;
+
 public class ClientSocketMain {
 	Socket s;
 	DataInputStream din;
@@ -26,14 +28,15 @@ public class ClientSocketMain {
 			br = new BufferedReader(new InputStreamReader(System.in));
 
 			String msgin = "", msgout = "";
+			
+			String channel = getChannelValue();
 
-			while (!msgin.equals("end")) {
-				dout.writeUTF(String.valueOf(1));
+			while (!msgin.equals("end")) {			
+				dout.writeUTF(channel);
 				msgin = din.readUTF();
+				System.out.println(msgin);
 				setData(msgin);
-				startGraphPlot();
-//				System.out.println(msgin + "Value Received");
-				
+				startGraphPlot();				
 			}
 			s.close();
 		} catch (Exception e) {
@@ -41,6 +44,15 @@ public class ClientSocketMain {
 		}
 	}
 	
+	private String getChannelValue() {
+		JComboBox comboBox = clientDataManager.getChannelDD();
+		String channel = (String) comboBox.getSelectedItem();
+		return channel;
+		
+	}
+
+	
+
 	private void startGraphPlot() {
 		if(flag) {
 			System.out.println("Client Graph Parser Added");

@@ -11,8 +11,7 @@ public class ClientDataManager {
 	private JTextPane freqText;
 	ClientPanelData panelData;
 	ClientPanelInfo info;
-	
-	
+
 
 	public ClientPanelInfo getInfo() {
 		return info;
