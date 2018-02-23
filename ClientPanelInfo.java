@@ -22,8 +22,7 @@ public class ClientPanelInfo extends JPanel {
         ClientPanelLowest lowest = new ClientPanelLowest();
         ClientPanelAverage average = new ClientPanelAverage();
         ClientPanelChannels channels = new ClientPanelChannels();
-        ClientPanelFrequency frequency = new ClientPanelFrequency();
-                
+        ClientPanelFrequency frequency = new ClientPanelFrequency();           
         add(highest);
         add(lowest);
         add(average);

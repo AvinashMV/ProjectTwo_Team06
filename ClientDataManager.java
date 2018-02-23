@@ -11,7 +11,35 @@ public class ClientDataManager {
 	private JTextPane freqText;
 	ClientPanelData panelData;
 	ClientPanelInfo info;
+	JTextPane highTxt;
+	JTextPane lowTxt;
+	JTextPane avgText;
+	
 
+
+	public JTextPane getHighTxt() {
+		return highTxt;
+	}
+
+	public void setHighTxt(JTextPane highTxt) {
+		this.highTxt = highTxt;
+	}
+
+	public JTextPane getLowTxt() {
+		return lowTxt;
+	}
+
+	public void setLowTxt(JTextPane lowTxt) {
+		this.lowTxt = lowTxt;
+	}
+
+	public JTextPane getAvgText() {
+		return avgText;
+	}
+
+	public void setAvgText(JTextPane avgText) {
+		this.avgText = avgText;
+	}
 
 	public ClientPanelInfo getInfo() {
 		return info;

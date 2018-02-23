@@ -32,6 +32,7 @@ public class ClientPanelLowest extends JPanel {
         
         //added text panel where the lowest value will go.
         JTextPane lowTxt = new JTextPane();
+        ClientDataManager.getInstance().setLowTxt(lowTxt);
         lowTxt.setBorder(BorderFactory.createLineBorder(Color.black));
         lowTxt.setBackground(StandardColor.LIGHT_BLUE);
         lowTxt.setPreferredSize(new Dimension(85, 60));

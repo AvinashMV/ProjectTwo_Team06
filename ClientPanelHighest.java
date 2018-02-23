@@ -29,6 +29,7 @@ public class ClientPanelHighest extends JPanel {
         
         //added text panel where the highest value will go.
         JTextPane highTxt = new JTextPane();
+        ClientDataManager.getInstance().setHighTxt(highTxt);
         highTxt.setBorder(BorderFactory.createLineBorder(Color.black));
         highTxt.setBackground(StandardColor.PINK);
         highTxt.setPreferredSize(new Dimension(85, 60));

@@ -31,6 +31,7 @@ public class ClientPanelAverage extends JPanel {
         
         //added text panel where the average value will go.
         JTextPane avgText = new JTextPane();
+        ClientDataManager.getInstance().setAvgText(avgText);
         avgText.setBorder(BorderFactory.createLineBorder(Color.black));
         avgText.setBackground(StandardColor.PINK);
         avgText.setPreferredSize(new Dimension(85, 60));
