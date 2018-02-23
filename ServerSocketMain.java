@@ -11,7 +11,7 @@ public class ServerSocketMain implements Observer {
 	DataOutputStream dout;
 	BufferedReader br;
 	int count = 1;
-	int frequency = 5000;
+	int frequency = 2000;
 	
 	public ServerSocketMain(){
 	}

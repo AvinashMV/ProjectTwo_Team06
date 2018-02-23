@@ -21,6 +21,7 @@ public class ClientPanelData extends JPanel {
     	setBackground(StandardColor.SLATE_GREY);
         ClientPanelGraph graph = new ClientPanelGraph();
         ClientPanelInfo info = new ClientPanelInfo();
+        ClientDataManager.getInstance().setInfo(info);
         add(graph);
         add(info);
     }

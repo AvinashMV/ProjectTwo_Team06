@@ -9,6 +9,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextPane;
 
 /**
  * Lab 2, Team 6
@@ -20,7 +21,7 @@ public class ClientPanelTop extends JPanel implements ActionListener {
     
 	ServerSocketMain serverSocketMain = new ServerSocketMain();
 	ExecutorService executor = Executors.newFixedThreadPool(10);
-	ClientSocketMain clientSocketMain = new ClientSocketMain();
+	ClientSocketMain clientSocketMain;
 	
     public ClientPanelTop() {
         createAndShowGUI();
@@ -44,8 +45,10 @@ public class ClientPanelTop extends JPanel implements ActionListener {
 		// TODO Auto-generated method stub
 		JButton button = (JButton) e.getSource();
 		if(button.getText().equals("Start")) {
+			clientSocketMain = new ClientSocketMain();
 			button.setText("Stop");
-			startServer();
+			ClientDataManager.getInstance().initializeArray();
+			startServer(getValueOfFrequency());
 		}
 		else {
 			button.setText("Start");
@@ -54,14 +57,22 @@ public class ClientPanelTop extends JPanel implements ActionListener {
 		
 	}
 
-	private void startServer() {
+	private int  getValueOfFrequency() {
+		JTextPane frequencyTxt = ClientDataManager.getInstance().getFreqText();
+		String frequency  = frequencyTxt.getText();
+		Integer freq = Integer.parseInt(frequency);
+		return freq;
+	}
+
+	private void startServer(int frequency) {
 		Runnable runnableTask = () -> {
-			clientSocketMain.startConnection();
+			clientSocketMain.startConnection(frequency);
 		};
 		executor.execute(runnableTask);
 	}
 	
 	private void stopServer() {
 		clientSocketMain.closeConnection();
+		executor.shutdown();
 	}
 }

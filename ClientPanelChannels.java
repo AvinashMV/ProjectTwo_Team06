@@ -19,6 +19,7 @@ import javax.swing.JTextPane;
 public class ClientPanelChannels extends JPanel {
     
 	private String[] valuesForDropDown = new String[] {"1", "2", "3", "4", "5"};
+	JComboBox<String> channelDD;
     
     public ClientPanelChannels() {
         createAndShowGUI();
@@ -35,22 +36,12 @@ public class ClientPanelChannels extends JPanel {
         test.setBorder(BorderFactory.createLineBorder(Color.black));
         
         //added text panel where the lowest value will go.
-        JComboBox<String> channelDD = new JComboBox<String>(valuesForDropDown);
+        channelDD = new JComboBox<String>(valuesForDropDown);
         channelDD.setPreferredSize(new Dimension(85,60));
         channelDD.setVisible(true);
         channelDD.setBorder(BorderFactory.createLineBorder(Color.black));
         channelDD.setBackground(StandardColor.LIGHT_BLUE);
-        channelDD.addActionListener(new ActionListener() {
-
-        	@Override
-            public void actionPerformed(ActionEvent e) {
-
-                String selectedValue = (String)channelDD.getSelectedItem();
-            }
-
-        });
-		
-        
+        ClientDataManager.getInstance().setChannelDD(channelDD);
         add(test);
         test.add(channelLabel);
         add(channelDD);

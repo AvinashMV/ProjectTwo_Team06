@@ -15,6 +15,8 @@ import javax.swing.JTextPane;
  */
 public class ClientPanelFrequency extends JPanel {
     
+	JTextPane freqText;
+	
     public ClientPanelFrequency() {
         createAndShowGUI();
     }
@@ -30,12 +32,11 @@ public class ClientPanelFrequency extends JPanel {
         test.setBorder(BorderFactory.createLineBorder(Color.black));
         
         //added text panel where the frequency value will go.
-        JTextPane freqText = new JTextPane();
+        freqText = new JTextPane();
         freqText.setBorder(BorderFactory.createLineBorder(Color.black));
         freqText.setBackground(StandardColor.PINK);
         freqText.setPreferredSize(new Dimension(85, 60));
-        freqText.setEditable(false);
-        
+        ClientDataManager.getInstance().setFreqText(freqText);
         add(test);
         test.add(freqLabel);
         add(freqText);
