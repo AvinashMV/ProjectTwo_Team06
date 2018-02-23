@@ -9,6 +9,7 @@ import javax.swing.*;
  * Lab 2, Team 6
  * @author SER 516, Gary Morris (#78)
  * @author SER 516, Aman Maheshwari (#66)
+ * @author SER 516, Vimal Menon (#73)
  */
 public class ClientPanelHighest extends JPanel {
     
@@ -37,4 +38,15 @@ public class ClientPanelHighest extends JPanel {
         test.add(highLabel);
         add(highTxt);
     }
+    
+    public static int getMaxValue(int[] array) {
+        int maxValue = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > maxValue) {
+                maxValue = array[i];
+            }
+        }
+        return maxValue;
+    }
+
 }
