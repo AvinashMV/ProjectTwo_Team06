@@ -11,6 +11,7 @@ import javax.swing.JTextPane;
  * Lab 2, Team 6
  * @author SER 516, Gary Morris (#78)
  * @author SER 516, Aman Maheshwari (#66)
+ * @author SER 516, Vimal Menon (#73)
  */
 public class ClientPanelAverage extends JPanel {
     
@@ -38,5 +39,14 @@ public class ClientPanelAverage extends JPanel {
         add(test);
         test.add(avgLabel);
         add(avgText);
+    }
+    
+    public static int getAvgValue(int[] array) {
+        int sumValue = 0;
+        int avgValue = 0;
+        for (int i = 0; i < array.length; i++)
+        	sumValue = sumValue + array[i];
+        avgValue = sumValue/array.length;
+        return avgValue;
     }
 }
