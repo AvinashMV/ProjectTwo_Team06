@@ -16,10 +16,17 @@ public class ServerWindow extends JFrame {
     }
     
     public static void main(String[] args) {
+    		addServerSocket();
         JFrame server = new ServerWindow();
+        ;
     }
     
-    private void createAndShowGUI() {
+    private static void addServerSocket() {
+		MessageHandler.getInstance().setServerSocketMain(new ServerSocketMain());
+		
+	}
+
+	private void createAndShowGUI() {
         setTitle("Server (Lab 2, Team 6)");
         add(createMainPanel());
         pack();

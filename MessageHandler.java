@@ -6,8 +6,17 @@ public class MessageHandler {
 	private ServerStatusPanel serverStatusPanel;
 	private ServerPanelTop serverPanelTop;
 	private ServerPanelConsole serverPanelConsole;
+	private ServerSocketMain serverSocketMain;
 
 	
+	public ServerSocketMain getServerSocketMain() {
+		return serverSocketMain;
+	}
+
+	public void setServerSocketMain(ServerSocketMain serverSocketMain) {
+		this.serverSocketMain = serverSocketMain;
+	}
+
 	public ServerPanelConsole getServerPanelConsole() {
 		return serverPanelConsole;
 	}

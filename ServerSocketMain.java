@@ -1,13 +1,17 @@
 import java.io.*;
 import java.net.*;
+import java.util.Observable;
+import java.util.Observer;
 
-public class ServerSocketMain {
+public class ServerSocketMain implements Observer {
 	
 	Socket s;
 	ServerSocket ss;
 	DataInputStream din;
 	DataOutputStream dout;
 	BufferedReader br;
+	int count = 1;
+	int frequency = 5000;
 	
 	public ServerSocketMain(){
 	}
@@ -18,13 +22,16 @@ public class ServerSocketMain {
 			Socket s = ss.accept();
 			
 			din = new DataInputStream(s.getInputStream());
-			dout = new DataOutputStream(s.getOutputStream());
 			
-			br = new BufferedReader(new InputStreamReader(System.in));
+			dout = new DataOutputStream(s.getOutputStream());
+	
 			String msgin = "", msgout = "";
 			while(true) {
 				msgin = din.readUTF();
-				System.out.println(msgin + "Channel Value");
+				if(count < 2) {
+					addChannel(msgin);
+				}
+				Thread.sleep(frequency);
 				dout.writeUTF(ServerDataManager.getInstance().generateNumbers());
 				dout.flush();
 			}
@@ -35,6 +42,10 @@ public class ServerSocketMain {
 		}
 	}
 	
+	private void addChannel(String msgin) {
+		ServerDataManager.getInstance().setChannels(Integer.parseInt(msgin));
+	}
+
 	public void closeConnection() {
 		try {
 			din.close();
@@ -47,6 +58,13 @@ public class ServerSocketMain {
 			e.printStackTrace();
 		}
 		
+		
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		String freq = (String) arg;
+		frequency = Integer.parseInt(freq);
 		
 	}
 }

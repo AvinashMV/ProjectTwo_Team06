@@ -20,9 +20,9 @@ public class ClientSocketMain {
 			String msgin = "", msgout = "";
 
 			while (!msgin.equals("end")) {
-				dout.writeUTF(String.valueOf(3));
+				dout.writeUTF(String.valueOf(5));
 				msgin = din.readUTF();
-				System.out.println(msgin);
+				System.out.println(msgin + "Value Received");
 			}
 			s.close();
 		} catch (Exception e) {

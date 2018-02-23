@@ -20,7 +20,7 @@ import javax.swing.JPanel;
 public class ServerPanelTop extends JPanel implements ActionListener{
 	JButton serverControlButton;
 	MessageObservable observable;
-	ServerSocketMain serverSocketMain = new ServerSocketMain();
+	ServerSocketMain serverSocketMain = MessageHandler.getInstance().getServerSocketMain();
 	ExecutorService executor = Executors.newFixedThreadPool(10);
 	
     public ServerPanelTop() {

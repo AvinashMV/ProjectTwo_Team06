@@ -2,15 +2,18 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class ServerPanelFrequency extends JPanel{
+public class ServerPanelFrequency extends JPanel implements ActionListener{
     
     JPanel frequencyPanel;
     JLabel frequencyLabel;
     JFormattedTextField frequencyTxt;
     int frequency;
+    FrequencyObservable observable;
 	 public ServerPanelFrequency() {
 	        createAndShowGUI();
 	    }
@@ -31,16 +34,20 @@ public class ServerPanelFrequency extends JPanel{
 	        frequencyTxt.setBackground(StandardColor.PINK);
 	        frequencyTxt.setPreferredSize(new Dimension(120, 60));
 	        frequencyTxt.setEditable(true);
-	        
+	        frequencyTxt.addActionListener(this);
+	        observable = new FrequencyObservable();
+	        observable.addObserver(MessageHandler.getInstance().getServerSocketMain());
 	        add(frequencyPanel);
 	        frequencyPanel.add(frequencyLabel);
 	        add(frequencyTxt);
 	    }
             
-                public int getFrequency()
-                {
-                    frequency= Integer.parseInt(frequencyTxt.getText());
-                    return frequency;
-                }
+               
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JFormattedTextField frequency = (JFormattedTextField) e.getSource();
+			observable.changeData(frequency.getValue());
+		}
 
 }
