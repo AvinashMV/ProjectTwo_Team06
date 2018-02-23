@@ -35,6 +35,7 @@ public class ServerPanelTop extends JPanel implements ActionListener{
         add(serverControlButton);
         observable = new MessageObservable();
         observable.addObserver(MessageHandler.getInstance().getServerStatusPanel());
+        observable.addObserver(MessageHandler.getInstance().getServerPanelConsole());
     }
 
 	@Override

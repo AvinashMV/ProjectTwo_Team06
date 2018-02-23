@@ -22,9 +22,12 @@ public class ServerPanelMain extends JPanel {
     }
     
     private void createAndShowGUI() {
+    		panelConsole = new ServerPanelConsole();
+    		MessageHandler.getInstance().setServerPanelConsole(panelConsole);
+    		
     	 	panelData = new ServerPanelData();
         panelTop = new ServerPanelTop();
-        panelConsole = new ServerPanelConsole();
+        
         add(panelTop);
         add(panelData);
         add(panelConsole);

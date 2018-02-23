@@ -5,8 +5,17 @@ public class MessageHandler {
 	private static Object mutex = new Object();
 	private ServerStatusPanel serverStatusPanel;
 	private ServerPanelTop serverPanelTop;
+	private ServerPanelConsole serverPanelConsole;
 
 	
+	public ServerPanelConsole getServerPanelConsole() {
+		return serverPanelConsole;
+	}
+
+	public void setServerPanelConsole(ServerPanelConsole serverPanelConsole) {
+		this.serverPanelConsole = serverPanelConsole;
+	}
+
 	public ServerStatusPanel getServerStatusPanel() {
 		return serverStatusPanel;
 	}
