@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 public class ServerPanelTop extends JPanel implements ActionListener{
 	JButton serverControlButton;
 	MessageObservable observable;
+	Thread serverThread = new Thread(new Serversocket());
 	
     public ServerPanelTop() {
         createAndShowGUI();
@@ -36,6 +37,7 @@ public class ServerPanelTop extends JPanel implements ActionListener{
         observable = new MessageObservable();
         observable.addObserver(MessageHandler.getInstance().getServerStatusPanel());
         observable.addObserver(MessageHandler.getInstance().getServerPanelConsole());
+        
     }
 
 	@Override
@@ -44,10 +46,14 @@ public class ServerPanelTop extends JPanel implements ActionListener{
 		JButton button = (JButton) e.getSource();
 		if(button.getText().equals("Start")) {
 			button.setText("Stop");
+			serverThread.start();
 			observable.changeData("Start");
+			
 		}
 		else {
 			button.setText("Start");
+			Serversocket.ServersocketClose();
+			serverThread.stop();
 			observable.changeData("Stop");
 		}
 		
