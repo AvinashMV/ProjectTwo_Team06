@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -18,6 +20,8 @@ import javax.swing.JPanel;
 public class ServerPanelTop extends JPanel implements ActionListener{
 	JButton serverControlButton;
 	MessageObservable observable;
+	ServerSocketMain serverSocketMain = new ServerSocketMain();
+	ExecutorService executor = Executors.newFixedThreadPool(10);
 	
     public ServerPanelTop() {
         createAndShowGUI();
@@ -44,6 +48,7 @@ public class ServerPanelTop extends JPanel implements ActionListener{
 		JButton button = (JButton) e.getSource();
 		if(button.getText().equals("Start")) {
 			button.setText("Stop");
+			startServer();
 			observable.changeData("Start");
 		}
 		else {
@@ -51,6 +56,17 @@ public class ServerPanelTop extends JPanel implements ActionListener{
 			observable.changeData("Stop");
 		}
 		
+	}
+
+	private void startServer() {
+		Runnable runnableTask = () -> {
+		    serverSocketMain.startConnection();
+		};
+		executor.execute(runnableTask);
+	}
+	
+	private void stopServer() {
+		serverSocketMain.closeConnection();
 	}
 
 	

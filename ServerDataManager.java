@@ -7,7 +7,7 @@ public class ServerDataManager {
 	
 	private static volatile ServerDataManager serverDataManager;
 	private static Object mutex = new Object();
-	private static int channels = 1;
+	private static int channels = 3;
 	private static long highestValue = 1024;
 	private static long lowestValue = 0;
 	
