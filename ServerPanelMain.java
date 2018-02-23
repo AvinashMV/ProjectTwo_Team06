@@ -22,8 +22,8 @@ public class ServerPanelMain extends JPanel {
     }
     
     private void createAndShowGUI() {
+    	 	panelData = new ServerPanelData();
         panelTop = new ServerPanelTop();
-        panelData = new ServerPanelData();
         panelConsole = new ServerPanelConsole();
         add(panelTop);
         add(panelData);

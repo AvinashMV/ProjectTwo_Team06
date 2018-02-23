@@ -3,6 +3,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -13,8 +15,9 @@ import javax.swing.JPanel;
  * @author SER 516, Gary Morris (#78)
  * @author SER 516, Rishab Mantri (#69)
  */
-public class ServerPanelTop extends JPanel implements ActionListener  {
+public class ServerPanelTop extends JPanel implements ActionListener{
 	JButton serverControlButton;
+	MessageObservable observable;
 	
     public ServerPanelTop() {
         createAndShowGUI();
@@ -30,6 +33,8 @@ public class ServerPanelTop extends JPanel implements ActionListener  {
         serverControlButton.addActionListener(this);
         add(test);
         add(serverControlButton);
+        observable = new MessageObservable();
+        observable.addObserver(MessageHandler.getInstance().getServerStatusPanel());
     }
 
 	@Override
@@ -38,10 +43,16 @@ public class ServerPanelTop extends JPanel implements ActionListener  {
 		JButton button = (JButton) e.getSource();
 		if(button.getText().equals("Start")) {
 			button.setText("Stop");
+			observable.changeData("Start");
 		}
 		else {
 			button.setText("Start");
+			observable.changeData("Stop");
 		}
 		
 	}
+
+	
+
+	
 }
