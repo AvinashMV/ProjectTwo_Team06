@@ -1,6 +1,12 @@
 
+/**
+ * Lab 2, Team 6
+ * 
+ * @author SER 516, Garv Mathur (#72)
+ */
+
 public class MessageHandler {
-	
+
 	private static volatile MessageHandler messageHandler;
 	private static Object mutex = new Object();
 	private ServerStatusPanel serverStatusPanel;
@@ -8,7 +14,6 @@ public class MessageHandler {
 	private ServerPanelConsole serverPanelConsole;
 	private ServerSocketMain serverSocketMain;
 
-	
 	public ServerSocketMain getServerSocketMain() {
 		return serverSocketMain;
 	}

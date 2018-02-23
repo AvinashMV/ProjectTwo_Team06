@@ -3,6 +3,12 @@ import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JTextPane;
 
+/**
+ * Lab 2, Team 6
+ * 
+ * @author SER 516, Garv Mathur (#72)
+ */
+
 public class ClientDataManager {
 	private static volatile ClientDataManager clientDataManager;
 	private static Object mutex = new Object();
@@ -14,8 +20,6 @@ public class ClientDataManager {
 	JTextPane highTxt;
 	JTextPane lowTxt;
 	JTextPane avgText;
-	
-
 
 	public JTextPane getHighTxt() {
 		return highTxt;
@@ -73,14 +77,10 @@ public class ClientDataManager {
 		this.dump = dump;
 	}
 
-	
-
 	int max = 0;
 	int min = 0;
-	int average =0;
+	int average = 0;
 	JComboBox<String> channelDD;
-	
-	
 
 	public JComboBox<String> getChannelDD() {
 		return channelDD;
@@ -128,19 +128,18 @@ public class ClientDataManager {
 	}
 
 	public void initializeArray() {
-		String channel = (String) ClientDataManager.getInstance()
-				.getChannelDD().getSelectedItem();
+		String channel = (String) ClientDataManager.getInstance().getChannelDD().getSelectedItem();
 		dump = new ArrayList<>();
 		inputData = new ArrayList<>();
-		
-		for(int i=0;i < Integer.parseInt(channel); i++) {
+
+		for (int i = 0; i < Integer.parseInt(channel); i++) {
 			dump.add(new ArrayList<>());
 		}
-		
-		for(int i=0;i < Integer.parseInt(channel); i++) {
+
+		for (int i = 0; i < Integer.parseInt(channel); i++) {
 			inputData.add(new ArrayList<>());
 		}
-		
+
 	}
 
 	public ArrayList<ArrayList<Integer>> getInputData() {
