@@ -7,7 +7,8 @@ public class ClientSocketMain {
 	DataInputStream din;
 	DataOutputStream dout;
 	BufferedReader br;
-		public ClientSocketMain() {
+	
+	public void startConnection() {
 		try {
 			s = new Socket("127.0.0.1",1201);
 
@@ -19,8 +20,7 @@ public class ClientSocketMain {
 			String msgin = "", msgout = "";
 
 			while (!msgin.equals("end")) {
-				msgout = br.readLine();
-				dout.writeUTF(msgout);
+				dout.writeUTF(String.valueOf(3));
 				msgin = din.readUTF();
 				System.out.println(msgin);
 			}
@@ -28,18 +28,16 @@ public class ClientSocketMain {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-
 	}
-		
-		public void close() {
-			try {
-				din.close();
-				dout.close();
-				br.close();
-				s.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+	
+	public void closeConnection() {
+		try{
+			din.close();
+			dout.close();
+			br.close();
+			s.close();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-
+	}
 }

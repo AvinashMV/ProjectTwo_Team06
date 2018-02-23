@@ -21,15 +21,11 @@ public class ServerSocketMain {
 			dout = new DataOutputStream(s.getOutputStream());
 			
 			br = new BufferedReader(new InputStreamReader(System.in));
-			System.out.println("Hello");
 			String msgin = "", msgout = "";
-			System.out.println(msgin + "Hello");
 			while(true) {
-//				msgin = din.readUTF();
-				System.out.println(msgin);
+				msgin = din.readUTF();
+				System.out.println(msgin + "Channel Value");
 				dout.writeUTF(ServerDataManager.getInstance().generateNumbers());
-			
-				System.out.print(ServerDataManager.getInstance().generateNumbers());
 				dout.flush();
 			}
 		}

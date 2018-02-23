@@ -2,6 +2,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -14,37 +16,52 @@ import javax.swing.JPanel;
  * @author SER 516, Aman Maheshwari (#66)
  * @author SER 516, Rishabh Modi (#75)
  */
-public class ClientPanelTop extends JPanel {
+public class ClientPanelTop extends JPanel implements ActionListener {
     
+	ServerSocketMain serverSocketMain = new ServerSocketMain();
+	ExecutorService executor = Executors.newFixedThreadPool(10);
+	ClientSocketMain clientSocketMain = new ClientSocketMain();
+	
     public ClientPanelTop() {
         createAndShowGUI();
     }
     
     private void createAndShowGUI() {
-        ClientStartStop clientstartstop = new ClientStartStop();
         JPanel test = new JPanel();
         test.setPreferredSize(new Dimension(560, 50));        
-    	JButton startStop = new JButton("Start / Stop");
+        JButton startStop = new JButton();
+        startStop.addActionListener(this);
+        startStop.setText("Start");
         startStop.setBackground(Color.pink);
         startStop.setBorder(BorderFactory.createLineBorder(Color.black));
         startStop.setPreferredSize(new Dimension(100, 50));
-        startStop.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(clientstartstop.flag==true)
-                {
-                    clientstartstop.start();
-                    clientstartstop.flag = false;
-                }
-                else
-                {
-                    clientstartstop.stop();
-                    clientstartstop.flag = true;
-                }
-
-            }
-        });
         add(test);
         add(startStop);
     }
+
+    @Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		JButton button = (JButton) e.getSource();
+		if(button.getText().equals("Start")) {
+			button.setText("Stop");
+			startServer();
+		}
+		else {
+			button.setText("Start");
+			stopServer();
+		}
+		
+	}
+
+	private void startServer() {
+		Runnable runnableTask = () -> {
+			clientSocketMain.startConnection();
+		};
+		executor.execute(runnableTask);
+	}
+	
+	private void stopServer() {
+		clientSocketMain.closeConnection();
+	}
 }

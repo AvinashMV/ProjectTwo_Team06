@@ -54,6 +54,7 @@ public class ServerPanelTop extends JPanel implements ActionListener{
 		else {
 			button.setText("Start");
 			observable.changeData("Stop");
+			stopServer();
 		}
 		
 	}
