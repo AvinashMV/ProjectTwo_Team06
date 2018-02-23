@@ -19,11 +19,16 @@ public class ServerPanelTop extends JPanel implements ActionListener{
 	JButton serverControlButton;
 	MessageObservable observable;
 	Thread serverThread = new Thread(new Serversocket());
-	
+    /*
+    Create the Top of the Server Window
+    */	
     public ServerPanelTop() {
         createAndShowGUI();
     }
     
+    /*
+    Initialize the components of the Top of the Server Window
+    */
     private void createAndShowGUI() {
         JLabel test = new JLabel("TOP");
         serverControlButton =  new JButton();
@@ -39,10 +44,13 @@ public class ServerPanelTop extends JPanel implements ActionListener{
         observable.addObserver(MessageHandler.getInstance().getServerPanelConsole());
         
     }
-
+	/*
+	The functionality of the start and stop buttons:when clicked start the serverthread starts and 
+	when stopped the serversocket will close the connection.
+	*/
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+
 		JButton button = (JButton) e.getSource();
 		if(button.getText().equals("Start")) {
 			button.setText("Stop");
