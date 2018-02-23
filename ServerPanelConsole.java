@@ -45,7 +45,7 @@ public class ServerPanelConsole extends JPanel implements Observer {
 				message = "The server has been started. \n";
 			}
 			else {
-				message = "The server has been stopped.g \n";				
+				message = "The server has been stopped \n";				
 			}
 			consoleLogs.append(message);			
 		}
