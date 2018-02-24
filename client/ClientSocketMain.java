@@ -40,7 +40,6 @@ public class ClientSocketMain {
 			}
 			s.close();
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
 		}
 	}
 
@@ -53,7 +52,6 @@ public class ClientSocketMain {
 
 	private void startGraphPlot() {
 		if (flag) {
-			System.out.println("Client Graph Parser Added");
 			this.flag = false;
 			Runnable runnableTask = () -> {
 				ClientGraphParser graphParser = new ClientGraphParser(frequency);
