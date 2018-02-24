@@ -14,7 +14,7 @@ class FrequencyObservable extends Observable {
 	}
 
 	/*
-	 * 
+	 * Observable method to notify observing frequency 
 	 */
 	void changeData(Object data) {
 		setChanged();

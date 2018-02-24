@@ -20,7 +20,7 @@ import javax.swing.border.Border;
 public class ServerPanelConsole extends JPanel implements Observer {
 	JTextArea consoleLogs;
 
-	/*
+	/*Sets the display and data values for the Server Console
 	 * 
 	 */
 	public ServerPanelConsole() {
@@ -44,6 +44,7 @@ public class ServerPanelConsole extends JPanel implements Observer {
 	}
 
 	/*
+	 * Printing messages of the server status on the console
 	 * @param observable
 	 * 
 	 * @param arg

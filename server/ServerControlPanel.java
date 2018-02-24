@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 public class ServerControlPanel extends JPanel {
 
 	/*
-	 * 
+	 *Sets the look and feel for the Server Control Info Panel 
 	 */
 	public ServerControlPanel() {
 		setBackground(ServerConstants.SLATE_GREY);

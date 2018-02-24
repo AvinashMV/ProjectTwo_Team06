@@ -12,7 +12,7 @@ import javax.swing.JFrame;
  */
 public class ServerWindow extends JFrame {
 
-	/*
+	/*Main method that calls the Window
 	 * @param
 	 */
 	public static void main(String[] args) {
@@ -22,7 +22,7 @@ public class ServerWindow extends JFrame {
 	}
 
 	/*
-	 * 
+	 * Sets the look and feel for the Window
 	 */
 	private void createAndShowGUI() {
 		setTitle(ServerConstants.SERVER_TITLE);
@@ -34,7 +34,7 @@ public class ServerWindow extends JFrame {
 		setVisible(true);
 	}
 
-	/*
+	/*Setting the dimensions and the location for the display of the Window
 	 * @param frame
 	 */
 	private void centerGUI(JFrame frame) {

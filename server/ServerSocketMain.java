@@ -21,7 +21,7 @@ public class ServerSocketMain implements Observer {
 	int count = 1;
 	int frequency = 2000;
 
-	/*
+	/*Starts and listens to the connection for the server
 	 * 
 	 */
 	public void startConnection() {
@@ -47,7 +47,7 @@ public class ServerSocketMain implements Observer {
 	}
 
 	/*
-	 * 
+	 * Function to Close the connection
 	 */
 	public void closeConnection() {
 		try {

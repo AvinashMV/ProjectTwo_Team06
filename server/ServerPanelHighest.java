@@ -23,6 +23,7 @@ public class ServerPanelHighest extends JPanel implements ActionListener {
 	int highestValue;
 
 	/*
+	 * Sets observables for the highest value text
 	 * @param actionEvent
 	 */
 	public ServerPanelHighest() {
@@ -46,6 +47,7 @@ public class ServerPanelHighest extends JPanel implements ActionListener {
 	}
 
 	/*
+	 * Returns the highest value observed
 	 * @return highestValue
 	 */
 	public int getHighestValue() {

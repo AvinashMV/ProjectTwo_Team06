@@ -45,6 +45,7 @@ public class ServerDataManager {
 	}
 
 	/*
+	 * Singleton instance creation method
 	 * @return result
 	 */
 	public static ServerDataManager getInstance() {
@@ -60,7 +61,7 @@ public class ServerDataManager {
 		return result;
 	}
 
-	/*
+	/*Singleton random number generation method
 	 * @result result
 	 */
 	public static String generateNumbers() {

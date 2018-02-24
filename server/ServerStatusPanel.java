@@ -17,7 +17,7 @@ public class ServerStatusPanel extends JPanel implements Observer {
 	JLabel imageLabel;
 
 	/*
-	 * 
+	 * Sets the look and feel for the Server Status Panel
 	 */
 	public ServerStatusPanel() throws MalformedURLException {
 		setBackground(ServerConstants.SLATE_GREY);
@@ -28,6 +28,7 @@ public class ServerStatusPanel extends JPanel implements Observer {
 	}
 
 	/*
+	 * Starting the display for the server after the connection is set
 	 * @param observable
 	 * 
 	 * @param arg

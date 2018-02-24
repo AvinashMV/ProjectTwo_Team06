@@ -18,7 +18,8 @@ import javax.swing.text.NumberFormatter;
  */
 public class ServerHelper {
 	/*
-	 * 
+	 * Function for number format checking
+	 * @return Formatted number
 	 */
 	public static NumberFormatter formatter() {
 		NumberFormat longFormat = NumberFormat.getIntegerInstance();

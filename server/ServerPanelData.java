@@ -20,6 +20,7 @@ public class ServerPanelData extends JPanel {
 	JSplitPane splitPane;
 
 	/*
+	 * Sets the look and feel of the Sever Data Panel and sets value
 	 * 
 	 */
 	public ServerPanelData() {

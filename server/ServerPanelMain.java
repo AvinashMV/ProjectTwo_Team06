@@ -15,7 +15,7 @@ public class ServerPanelMain extends JPanel {
 	ServerPanelConsole panelConsole;
 
 	/*
-	 * 
+	 * Sets the look and feel for the Server Main Panel
 	 */
 	public ServerPanelMain() {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

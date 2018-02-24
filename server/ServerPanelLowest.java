@@ -24,7 +24,7 @@ public class ServerPanelLowest extends JPanel implements ActionListener {
 	int lowestValue;
 
 	/*
-	 * 
+	 * Sets observables for the lowest value text
 	 */
 	public ServerPanelLowest() {
 		lowestValuePanel = new JPanel();
@@ -46,7 +46,7 @@ public class ServerPanelLowest extends JPanel implements ActionListener {
 		add(lowTxt);
 	}
 
-	/*
+	/*Returns the lowest value observed
 	 * @return lowestValue
 	 */
 	public int getLowestValue() {
@@ -54,7 +54,7 @@ public class ServerPanelLowest extends JPanel implements ActionListener {
 		return lowestValue;
 	}
 
-	/*
+	/*Sets the value on the lowest text
 	 * @param actionEvent
 	 */
 	@Override

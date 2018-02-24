@@ -51,6 +51,7 @@ public class MessageHandler {
 	}
 
 	/*
+	 * Singleton instance creation method
 	 * @return result
 	 */
 	public static MessageHandler getInstance() {

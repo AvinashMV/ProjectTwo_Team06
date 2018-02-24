@@ -24,6 +24,7 @@ public class ServerPanelFrequency extends JPanel implements ActionListener {
 	FrequencyObservable observable;
 
 	/*
+	 * Sets the observables for frequency setting and passing
 	 * 
 	 */
 	public ServerPanelFrequency() {
@@ -48,7 +49,7 @@ public class ServerPanelFrequency extends JPanel implements ActionListener {
 		add(frequencyTxt);
 	}
 
-	/*
+	/*Sends the action performed for the change in data
 	 * @param actionEvent
 	 */
 	@Override

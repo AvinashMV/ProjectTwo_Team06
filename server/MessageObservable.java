@@ -14,7 +14,7 @@ class MessageObservable extends Observable {
 	}
 
 	/*
-	 * 
+	 * Observable method to notify observing message
 	 */
 	void changeData(Object data) {
 		setChanged(); // the two methods of Observable class
