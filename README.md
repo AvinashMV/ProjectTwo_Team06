@@ -1,7 +1,7 @@
 # ProjectTwo_Team06
 
 Steps To Run <br />
-javac server/ServerWindow.java
-javac client/ClientWindow.java
-java server/ServerWindow
-java client/ClientWindow
+javac server/ServerWindow.java <br />
+javac client/ClientWindow.java <br />
+java server/ServerWindow <br />
+java client/ClientWindow <br />
