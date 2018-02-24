@@ -35,6 +35,7 @@ public class ServerStatusPanel extends JPanel implements Observer {
 	 */
 	@Override
 	public void update(Observable observable, Object arg) {
+		imageLabel.setText("");
 		String status = (String) arg;
 		if (status.equals(ServerConstants.START)) {
 			imageLabel.setIcon(

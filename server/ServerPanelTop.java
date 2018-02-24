@@ -65,7 +65,7 @@ public class ServerPanelTop extends JPanel implements ActionListener {
 			if (!performInputValidation()) {
 				return;
 			}
-
+			
 			button.setText("Stop");
 			startServer();
 			observable.changeData(ServerConstants.START);
