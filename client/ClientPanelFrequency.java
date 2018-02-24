@@ -14,20 +14,15 @@ import server.ServerConstants;
 
 
 /**
- * Lab 2, Team 6
+ * ClientPanelFrequency class sets attribute for frequency GUI components
  * 
- * @author SER 516, Gary Morris (#78)
- * @author SER 516, Aman Maheshwari (#66)
+ * @author Team 6
  */
 public class ClientPanelFrequency extends JPanel {
 
 	JTextPane freqText;
 
 	public ClientPanelFrequency() {
-		createAndShowGUI();
-	}
-
-	private void createAndShowGUI() {
 		JPanel test = new JPanel();
 		JLabel freqLabel = new JLabel("<html>Frequency<br>(Hz)</html>");
 
@@ -37,7 +32,6 @@ public class ClientPanelFrequency extends JPanel {
 		test.setBackground(ServerConstants.LIGHT_BLUE);
 		test.setBorder(BorderFactory.createLineBorder(Color.black));
 
-		// added text panel where the frequency value will go.
 		freqText = new JTextPane();
 		freqText.setBorder(BorderFactory.createLineBorder(Color.black));
 		freqText.setBackground(ServerConstants.PINK);
@@ -47,4 +41,5 @@ public class ClientPanelFrequency extends JPanel {
 		test.add(freqLabel);
 		add(freqText);
 	}
+
 }

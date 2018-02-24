@@ -1,4 +1,5 @@
 package client;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -8,11 +9,11 @@ import java.util.Random;
 import javax.swing.JPanel;
 
 /**
- * Lab 2, Team 6
+ * ClientGraphParser class parse the input data from server and calculates
+ * maximum, minimum and average values.
  * 
- * @author SER 516, Garv Mathur (#72)
+ * @author Team 6
  */
-
 public class ClientGraphParser {
 	int minValue = Integer.MAX_VALUE;
 	int maxValue = Integer.MIN_VALUE;
@@ -24,18 +25,24 @@ public class ClientGraphParser {
 	private ArrayList<ArrayList<Integer>> inputData;
 	private ArrayList<Color> colors = new ArrayList<>();
 
+	/*
+	 * sets the frequency for receiving data
+	 * 
+	 * @param frequency : client frequency for receiving data
+	 */
 	public ClientGraphParser(int frequency) {
 		this.frequency = frequency;
-		System.out.println("MY frequency is" + frequency);
 	}
 
+	/*
+	 * addData function creates the array for graph plot
+	 */
 	public void addData() {
 		dump = clientDataManager.getDump();
 		setRandomColors(dump.size());
 		ArrayList<Integer> controlValues = new ArrayList<>();
 		while (true) {
 			dump = clientDataManager.getDump();
-
 			inputData = clientDataManager.getInputData();
 			if (dump.get(0).size() == 0) {
 				for (int i = 0; i < dump.size(); i++) {
@@ -45,12 +52,10 @@ public class ClientGraphParser {
 				for (int i = 0; i < dump.size(); i++) {
 					inputData.get(i).add(dump.get(i).get(dump.get(i).size() - 1));
 					controlValues.add(dump.get(i).get(dump.get(i).size() - 1));
-
 				}
 				calculateControlValues(controlValues);
 				setcontrolLabels();
 			}
-
 			GraphPlot graphPlot = new GraphPlot(inputData, colors);
 			graphPlot.setBackground(Color.WHITE);
 			ClientPanelInfo info = ClientDataManager.getInstance().getInfo();
@@ -62,16 +67,19 @@ public class ClientGraphParser {
 			panelData.add(info);
 			panelData.repaint();
 			panelData.revalidate();
-
 			try {
 				Thread.sleep(frequency);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 	}
 
+	/*
+	 * sets the frequency value
+	 * 
+	 * @param frequency : client frequency for receiving data
+	 */
 	private void setcontrolLabels() {
 		clientDataManager.getAvgText().setText(String.valueOf(average));
 		clientDataManager.getHighTxt().setText(String.valueOf(maxValue));
@@ -79,6 +87,10 @@ public class ClientGraphParser {
 
 	}
 
+	/*
+	 * calculateControlValues function calculates the minimum, maximum and average
+	 * values
+	 */
 	private void calculateControlValues(ArrayList<Integer> controlValues) {
 		average = average * count;
 		int sum = 0;
@@ -98,18 +110,19 @@ public class ClientGraphParser {
 
 	}
 
+	/*
+	 * setRandomColors function assigns colors for each channel
+	 * 
+	 * @param size : number of channels
+	 */
 	private void setRandomColors(int size) {
 		for (int i = 0; i < size; i++) {
-			colors.add(generateRandomColor());
+			Random rand = new Random();
+			float r = rand.nextFloat();
+			float g = rand.nextFloat();
+			float b = rand.nextFloat();
+			Color randomColor = new Color(r, g, b);
+			colors.add(randomColor);
 		}
-
-	}
-
-	private Color generateRandomColor() {
-		Random rand = new Random();
-		float r = rand.nextFloat();
-		float g = rand.nextFloat();
-		float b = rand.nextFloat();
-		return new Color(r, g, b);
 	}
 }

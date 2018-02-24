@@ -1,4 +1,5 @@
 package client;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -8,7 +9,6 @@ import java.util.concurrent.Executors;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
@@ -17,11 +17,9 @@ import server.MessageHandler;
 import server.ServerSocketMain;
 
 /**
- * Lab 2, Team 6
+ * ClientPanelTop class handles the start stop functionality for client
  * 
- * @author SER 516, Gary Morris (#78)
- * @author SER 516, Aman Maheshwari (#66)
- * @author SER 516, Rishabh Modi (#75)
+ * @author Team 6
  */
 public class ClientPanelTop extends JPanel implements ActionListener {
 
@@ -31,27 +29,25 @@ public class ClientPanelTop extends JPanel implements ActionListener {
 	ClientConsoleObserver clientConsoleObserver ; 
 
 	public ClientPanelTop() {
-		createAndShowGUI();
-	}
-
-	private void createAndShowGUI() {
-		JPanel test = new JPanel();
-		test.setPreferredSize(new Dimension(560, 50));
+		JPanel clientPanel = new JPanel();
+		clientPanel.setPreferredSize(new Dimension(560, 50));
 		JButton startStop = new JButton();
 		startStop.addActionListener(this);
-		startStop.setText("Start");
+		startStop.setText(ClientConstants.START);
 		startStop.setBackground(Color.pink);
 		startStop.setBorder(BorderFactory.createLineBorder(Color.black));
 		startStop.setPreferredSize(new Dimension(100, 50));
 		clientConsoleObserver = new ClientConsoleObserver();
 		clientConsoleObserver.addObserver(ClientDataManager.getInstance().getPanelConsole());
-		add(test);
+		add(clientPanel);
 		add(startStop);
 	}
 
+	/*
+	 * actionPerformed defines the functionality after start/stop button pressed
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		JButton button = (JButton) e.getSource();
 		if (button.getText().equals("Start")) {
 			int frequency = getValueOfFrequency();
@@ -67,13 +63,16 @@ public class ClientPanelTop extends JPanel implements ActionListener {
 		} else {
 			button.setText("Start");
 			clientConsoleObserver.changeData("Stop");
+
 			stopServer();
 		}
 
 	}
 
 
-
+	/*
+	 * return value of frequency from data manager
+	 */
 	private int getValueOfFrequency() {
 		JTextPane frequencyTxt = ClientDataManager.getInstance().getFreqText();
 		String frequency = frequencyTxt.getText().replace(",","");
@@ -92,6 +91,11 @@ public class ClientPanelTop extends JPanel implements ActionListener {
 		
 	}
 
+	/*
+	 * start server functionality
+	 * 
+	 * @param frequency : client frequency count
+	 */
 	private void startServer(int frequency) {
 		Runnable runnableTask = () -> {
 			clientSocketMain.startConnection(frequency);
@@ -99,6 +103,9 @@ public class ClientPanelTop extends JPanel implements ActionListener {
 		executor.execute(runnableTask);
 	}
 
+	/*
+	 * stop server functionality
+	 */
 	private void stopServer() {
 		clientSocketMain.closeConnection();
 		executor.shutdown();

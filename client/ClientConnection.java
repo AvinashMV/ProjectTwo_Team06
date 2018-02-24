@@ -1,4 +1,5 @@
 package client;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -8,9 +9,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Lab 2, Team 6
+ * ClientConnection class
  * 
- * @author SER 516, Abhishek Marathe (#70)
+ * @author Team 06
+ *
  */
 public class ClientConnection implements Runnable {
 	private Socket clientsocket;
@@ -27,17 +29,12 @@ public class ClientConnection implements Runnable {
 	public void run() {
 		BufferedReader input;
 		try {
-			// connect to server
 			clientsocket = new Socket("localhost", portNumber);
 			input = new BufferedReader(new InputStreamReader(clientsocket.getInputStream()));
-			System.out.println("Connected");
 			PrintWriter out = new PrintWriter(clientsocket.getOutputStream(), true);
-			// send channelCount
 			out.println(channelCount);
 			while ((inputMessage = input.readLine()) != null) {
-
 			}
-
 			clientsocket.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -45,7 +42,6 @@ public class ClientConnection implements Runnable {
 	}
 
 	public Map<Integer, ArrayList<Integer>> getStream() {
-
 		String in = inputMessage;
 		String[] inputs = in.split(",");
 		ArrayList<Integer> arr;
@@ -59,7 +55,5 @@ public class ClientConnection implements Runnable {
 			channelData.put(i, arr);
 		}
 		return channelData;
-
 	}
-
 }
