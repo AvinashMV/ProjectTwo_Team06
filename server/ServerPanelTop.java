@@ -9,6 +9,7 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
@@ -28,6 +29,7 @@ public class ServerPanelTop extends JPanel implements ActionListener {
 	ExecutorService executor = Executors.newFixedThreadPool(10);
 	InputObservable inputObservable;
 	FrequencyObservable frequencyObservable;
+
 
 	public ServerPanelTop() {
 		inputObservable = new InputObservable();
@@ -82,7 +84,7 @@ public class ServerPanelTop extends JPanel implements ActionListener {
 			int highValue = Integer.parseInt(highText.getText().replace(",",""));
 			int lowValue = Integer.parseInt(lowText.getText().replace(",",""));
 			if(lowValue > highValue) {
-				throw new Exception("Low value greater than high valye");
+				throw new Exception("Low value greater than high value");
 			}
 			
 			ServerDataManager.getInstance().setHighestValue(highValue);
@@ -91,7 +93,6 @@ public class ServerPanelTop extends JPanel implements ActionListener {
 			
 		}
 		catch(NumberFormatException e){
-			
 			inputObservable.changeData("Please set the arguments properly \n");
 			return false;
 		}
@@ -112,6 +113,7 @@ public class ServerPanelTop extends JPanel implements ActionListener {
 
 	private void stopServer() {
 		serverSocketMain.closeConnection();
+
 	}
 
 }

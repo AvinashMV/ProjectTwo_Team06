@@ -2,6 +2,7 @@ package client;
 import java.util.ArrayList;
 
 import javax.swing.JComboBox;
+import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
 /**
@@ -21,10 +22,25 @@ public class ClientDataManager {
 	JTextPane highTxt;
 	JTextPane lowTxt;
 	JTextPane avgText;
+	ClientPanelConsole panelConsole;
+	
+	
+	
+
+	public ClientPanelConsole getPanelConsole() {
+		return panelConsole;
+	}
+
+
+	public void setPanelConsole(ClientPanelConsole panelConsole) {
+		this.panelConsole = panelConsole;
+	}
+
 
 	public JTextPane getHighTxt() {
 		return highTxt;
 	}
+
 
 	public void setHighTxt(JTextPane highTxt) {
 		this.highTxt = highTxt;

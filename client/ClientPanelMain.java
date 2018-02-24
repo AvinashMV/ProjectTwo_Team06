@@ -26,8 +26,9 @@ public class ClientPanelMain extends JPanel {
 	private void createAndShowGUI() {
 		panelData = new ClientPanelData();
 		ClientDataManager.getInstance().setPanelData(panelData);
-		panelTop = new ClientPanelTop();
 		panelConsole = new ClientPanelConsole();
+		ClientDataManager.getInstance().setPanelConsole(panelConsole);
+		panelTop = new ClientPanelTop();
 		add(panelTop);
 		add(panelData);
 		add(panelConsole);

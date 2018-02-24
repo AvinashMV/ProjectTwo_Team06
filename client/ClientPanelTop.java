@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
+import javafx.beans.Observable;
+import server.MessageHandler;
 import server.ServerSocketMain;
 
 /**
@@ -26,6 +28,7 @@ public class ClientPanelTop extends JPanel implements ActionListener {
 	ServerSocketMain serverSocketMain = new ServerSocketMain();
 	ExecutorService executor = Executors.newFixedThreadPool(10);
 	ClientSocketMain clientSocketMain;
+	ClientConsoleObserver clientConsoleObserver ; 
 
 	public ClientPanelTop() {
 		createAndShowGUI();
@@ -40,6 +43,8 @@ public class ClientPanelTop extends JPanel implements ActionListener {
 		startStop.setBackground(Color.pink);
 		startStop.setBorder(BorderFactory.createLineBorder(Color.black));
 		startStop.setPreferredSize(new Dimension(100, 50));
+		clientConsoleObserver = new ClientConsoleObserver();
+		clientConsoleObserver.addObserver(ClientDataManager.getInstance().getPanelConsole());
 		add(test);
 		add(startStop);
 	}
@@ -52,9 +57,12 @@ public class ClientPanelTop extends JPanel implements ActionListener {
 			clientSocketMain = new ClientSocketMain();
 			button.setText("Stop");
 			ClientDataManager.getInstance().initializeArray();
+			clientConsoleObserver.changeData("Start");
 			startServer(getValueOfFrequency());
+			
 		} else {
 			button.setText("Start");
+			clientConsoleObserver.changeData("Stop");
 			stopServer();
 		}
 

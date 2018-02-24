@@ -3,12 +3,15 @@ package client;
 //package clientServer.ProjectTwo_Team06;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.Observer;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
+import javafx.beans.Observable;
 import server.StandardColor;
 
 /**
@@ -16,7 +19,8 @@ import server.StandardColor;
  * 
  * @author SER 516, Gary Morris (#78)
  */
-public class ClientPanelConsole extends JPanel {
+public class ClientPanelConsole extends JPanel implements Observer{
+	JTextArea consoleLogs;
 
 	public ClientPanelConsole() {
 		createAndShowGUI();
@@ -27,8 +31,17 @@ public class ClientPanelConsole extends JPanel {
 		Border loweredbevel = BorderFactory.createLoweredBevelBorder();
 		setBorder(BorderFactory.createCompoundBorder(line, loweredbevel));
 		JLabel test = new JLabel("CONSOLE");
-		test.setPreferredSize(new Dimension(600, 150));
+		consoleLogs = new JTextArea();
+		consoleLogs.setPreferredSize(new Dimension(600, 150));
+		consoleLogs.setText("Not connected to server. \n");
 		setBackground(StandardColor.SLATE_GREY);
 		add(test);
+		add(consoleLogs);
+	}
+
+	@Override
+	public void update(java.util.Observable o, Object arg) {
+		String message = (String) arg;
+		consoleLogs.append(message);
 	}
 }

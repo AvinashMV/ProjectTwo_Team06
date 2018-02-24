@@ -20,6 +20,7 @@ public class ServerSocketMain implements Observer {
 	BufferedReader br;
 	int count = 1;
 	int frequency = 2000;
+	boolean flag;
 
 	public ServerSocketMain() {
 	}
@@ -27,14 +28,15 @@ public class ServerSocketMain implements Observer {
 	public void startConnection() {
 		try {
 			ss = new ServerSocket(1201);
-			Socket s = ss.accept();
+			s = ss.accept();
 
 			din = new DataInputStream(s.getInputStream());
 
 			dout = new DataOutputStream(s.getOutputStream());
 
 			String msgin = "", msgout = "";
-			while (true) {
+			flag = true;
+			while (flag) {
 				msgin = din.readUTF();
 				if (count < 2) {
 					addChannel(msgin);
@@ -42,34 +44,39 @@ public class ServerSocketMain implements Observer {
 				Thread.sleep(frequency);
 				dout.writeUTF(ServerDataManager.getInstance().generateNumbers());
 				dout.flush();
+				
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		finally {
+			try {
+				din.close();
+				dout.close();
+				br.close();
+				s.close();
+				ss.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
 	}
+
 
 	private void addChannel(String msgin) {
 		ServerDataManager.getInstance().setChannels(Integer.parseInt(msgin));
 	}
 
 	public void closeConnection() {
-		try {
-			din.close();
-			dout.close();
-			br.close();
-			s.close();
-			ss.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+		this.flag = false;
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
 		String freq = (String) arg;
-		System.out.print("observer" + freq);
 		frequency = Integer.parseInt(freq);
 
 	}
