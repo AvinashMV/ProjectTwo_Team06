@@ -27,12 +27,11 @@ public class ServerSocketMain implements Observer {
 			socket = serverSocket.accept();
 			dataInputStream = new DataInputStream(socket.getInputStream());
 			dataOutputStream = new DataOutputStream(socket.getOutputStream());
-			String msgin = "", msgout = "";
 			while (true) {
-				msgin = dataInputStream.readUTF();
+				String message = dataInputStream.readUTF();
 				if (count < 2) {
 					ServerDataManager.getInstance();
-					ServerDataManager.setChannels(Integer.parseInt(msgin));
+					ServerDataManager.setChannels(Integer.parseInt(message));
 				}
 				Thread.sleep(frequency);
 				ServerDataManager.getInstance();
@@ -40,7 +39,7 @@ public class ServerSocketMain implements Observer {
 				dataOutputStream.flush();
 			}
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 	}
 

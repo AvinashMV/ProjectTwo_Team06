@@ -21,10 +21,6 @@ public class ServerPanelData extends JPanel {
 
 	public ServerPanelData() {
 		setLayout(new GridLayout());
-		createAndShowGUI();
-	}
-
-	private void createAndShowGUI() {
 		setPreferredSize(new Dimension(400, 400));
 		setBackground(ServerConstants.PINK);
 		try {

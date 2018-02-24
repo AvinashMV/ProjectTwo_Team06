@@ -11,7 +11,6 @@ import javax.swing.JFrame;
  * @version 1.0
  */
 public class ServerWindow extends JFrame {
-	ServerPanelMain mainPanel;
 
 	public static void main(String[] args) {
 		MessageHandler.getInstance().setServerSocketMain(new ServerSocketMain());

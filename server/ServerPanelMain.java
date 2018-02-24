@@ -16,10 +16,6 @@ public class ServerPanelMain extends JPanel {
 
 	public ServerPanelMain() {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		createAndShowGUI();
-	}
-
-	private void createAndShowGUI() {
 		panelConsole = new ServerPanelConsole();
 		MessageHandler.getInstance().setServerPanelConsole(panelConsole);
 		panelData = new ServerPanelData();

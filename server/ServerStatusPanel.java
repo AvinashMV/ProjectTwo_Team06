@@ -14,25 +14,25 @@ import javax.swing.JPanel;
  * @version 1.0
  */
 public class ServerStatusPanel extends JPanel implements Observer {
-	JLabel picLabel;
+	JLabel imageLabel;
 
 	public ServerStatusPanel() throws MalformedURLException {
 		setBackground(ServerConstants.SLATE_GREY);
-		picLabel = new JLabel();
-		picLabel.setText(ServerConstants.SERVER_STATUS_STOP);
-		picLabel.setFont(ServerConstants.TEXT_FONT);
-		add(picLabel);
+		imageLabel = new JLabel();
+		imageLabel.setText(ServerConstants.SERVER_STATUS_STOP);
+		imageLabel.setFont(ServerConstants.TEXT_FONT);
+		add(imageLabel);
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
 		String status = (String) arg;
 		if (status.equals(ServerConstants.START)) {
-			picLabel.setIcon(
+			imageLabel.setIcon(
 					new ImageIcon(ServerStatusPanel.this.getClass().getResource(ServerConstants.SERVER_START_IMAGE)));
-			picLabel.setHorizontalTextPosition(JLabel.CENTER);
+			imageLabel.setHorizontalTextPosition(JLabel.CENTER);
 		} else {
-			picLabel.setIcon(null);
+			imageLabel.setIcon(null);
 		}
 	}
 }
