@@ -1,12 +1,13 @@
 package server;
+
 import java.util.Observable;
 
 /**
- * Lab 2, Team 6
+ * The MessageObservable class
  * 
- * @author SER 516, Garv Mathur (#72)
+ * @author Team 06
+ * @version 1.0
  */
-
 class MessageObservable extends Observable {
 	MessageObservable() {
 		super();

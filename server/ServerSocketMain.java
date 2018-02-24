@@ -6,70 +6,59 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * Lab 2, Team 6
+ * The ServerPanelConsole class
  * 
- * @author SER 516, Garv Mathur (#72)
+ * @author Team 06
+ * @version 1.0
  */
-
 public class ServerSocketMain implements Observer {
 
-	Socket s;
-	ServerSocket ss;
-	DataInputStream din;
-	DataOutputStream dout;
-	BufferedReader br;
+	Socket socket;
+	ServerSocket serverSocket;
+	DataInputStream dataInputStream;
+	DataOutputStream dataOutputStream;
+	BufferedReader bufferedReader;
 	int count = 1;
 	int frequency = 2000;
 
-	public ServerSocketMain() {
-	}
-
 	public void startConnection() {
 		try {
-			ss = new ServerSocket(1201);
-			Socket s = ss.accept();
-
-			din = new DataInputStream(s.getInputStream());
-
-			dout = new DataOutputStream(s.getOutputStream());
-
+			serverSocket = new ServerSocket(1201);
+			socket = serverSocket.accept();
+			dataInputStream = new DataInputStream(socket.getInputStream());
+			dataOutputStream = new DataOutputStream(socket.getOutputStream());
 			String msgin = "", msgout = "";
 			while (true) {
-				msgin = din.readUTF();
+				msgin = dataInputStream.readUTF();
 				if (count < 2) {
-					addChannel(msgin);
+					ServerDataManager.getInstance();
+					ServerDataManager.setChannels(Integer.parseInt(msgin));
 				}
 				Thread.sleep(frequency);
-				dout.writeUTF(ServerDataManager.getInstance().generateNumbers());
-				dout.flush();
+				ServerDataManager.getInstance();
+				dataOutputStream.writeUTF(ServerDataManager.generateNumbers());
+				dataOutputStream.flush();
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
 
-	private void addChannel(String msgin) {
-		ServerDataManager.getInstance().setChannels(Integer.parseInt(msgin));
-	}
-
 	public void closeConnection() {
 		try {
-			din.close();
-			dout.close();
-			br.close();
-			s.close();
-			ss.close();
+			dataInputStream.close();
+			dataOutputStream.close();
+			bufferedReader.close();
+			socket.close();
+			serverSocket.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
 		String freq = (String) arg;
 		frequency = Integer.parseInt(freq);
-
 	}
 }

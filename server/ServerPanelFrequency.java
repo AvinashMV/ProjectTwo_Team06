@@ -1,14 +1,20 @@
 package server;
 
-//package clientServer.ProjectTwo_Team06;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.BorderFactory;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-import javax.swing.*;
-
+/**
+ * The ServerPanelConsole class
+ * 
+ * @author Team 06
+ * @version 1.0
+ */
 public class ServerPanelFrequency extends JPanel implements ActionListener {
 
 	JPanel frequencyPanel;
@@ -18,23 +24,17 @@ public class ServerPanelFrequency extends JPanel implements ActionListener {
 	FrequencyObservable observable;
 
 	public ServerPanelFrequency() {
-		createAndShowGUI();
-	}
-
-	private void createAndShowGUI() {
 		frequencyPanel = new JPanel();
-		frequencyLabel = new JLabel("<html>Frequency<br>(Hz)</html>");
-		frequencyLabel.setFont(new Font("SansSerif", Font.BOLD, 15));
+		frequencyLabel = new JLabel(ServerConstants.FREQUENCY_LABEL);
+		frequencyLabel.setFont(ServerConstants.TEXT_FONT);
 		frequencyLabel.setSize(85, 60);
 		frequencyPanel.setPreferredSize(new Dimension(120, 60));
-		frequencyPanel.setBackground(StandardColor.LIGHT_BLUE);
+		frequencyPanel.setBackground(ServerConstants.LIGHT_BLUE);
 		frequencyPanel.setBorder(BorderFactory.createLineBorder(Color.black));
-
-		// added text panel where the frequency value will go.
 		frequencyTxt = new JFormattedTextField(ServerHelper.formatter());
 		frequencyTxt.setText("4");
 		frequencyTxt.setBorder(BorderFactory.createLineBorder(Color.black));
-		frequencyTxt.setBackground(StandardColor.PINK);
+		frequencyTxt.setBackground(ServerConstants.PINK);
 		frequencyTxt.setPreferredSize(new Dimension(120, 60));
 		frequencyTxt.setEditable(true);
 		frequencyTxt.addActionListener(this);
@@ -50,5 +50,4 @@ public class ServerPanelFrequency extends JPanel implements ActionListener {
 		JFormattedTextField frequency = (JFormattedTextField) e.getSource();
 		observable.changeData(frequency.getValue());
 	}
-
 }
