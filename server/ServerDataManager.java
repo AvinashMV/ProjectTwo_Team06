@@ -13,8 +13,17 @@ public class ServerDataManager {
 	private static volatile ServerDataManager serverDataManager;
 	private static Object mutex = new Object();
 	private static int channels = 3;
-	private static long highestValue = 1024;
+	private static long highestValue = 0;
 	private static long lowestValue = 0;
+	private static long frequency = 0;
+
+	public static long getFrequency() {
+		return frequency;
+	}
+
+	public static void setFrequency(long frequency) {
+		ServerDataManager.frequency = frequency;
+	}
 
 	private ServerDataManager() {
 	}

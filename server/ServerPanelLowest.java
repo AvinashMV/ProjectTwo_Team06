@@ -33,7 +33,7 @@ public class ServerPanelLowest extends JPanel implements ActionListener {
 
 		// added text panel where the highest value will go.
 		lowTxt = new JFormattedTextField(ServerHelper.formatter());
-		lowTxt.setText("0");
+		ServerDataHandler.getInstance().setLowText(lowTxt);
 		lowTxt.addActionListener(this);
 		lowTxt.setBorder(BorderFactory.createLineBorder(Color.black));
 		lowTxt.setBackground(StandardColor.LIGHT_BLUE);

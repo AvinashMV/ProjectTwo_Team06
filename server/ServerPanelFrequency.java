@@ -32,7 +32,7 @@ public class ServerPanelFrequency extends JPanel implements ActionListener {
 
 		// added text panel where the frequency value will go.
 		frequencyTxt = new JFormattedTextField(ServerHelper.formatter());
-		frequencyTxt.setText("4");
+		ServerDataHandler.getInstance().setFrequency(frequencyTxt);
 		frequencyTxt.setBorder(BorderFactory.createLineBorder(Color.black));
 		frequencyTxt.setBackground(StandardColor.PINK);
 		frequencyTxt.setPreferredSize(new Dimension(120, 60));

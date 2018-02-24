@@ -31,10 +31,10 @@ public class ServerPanelHighest extends JPanel implements ActionListener {
 		highestValuePanel.setPreferredSize(new Dimension(120, 60));
 		highestValuePanel.setBackground(StandardColor.LIGHT_BLUE);
 		highestValuePanel.setBorder(BorderFactory.createLineBorder(Color.black));
-
+		
 		// added text panel where the highest value will go.
 		highTxt = new JFormattedTextField(ServerHelper.formatter());
-		highTxt.setText("1024");
+		ServerDataHandler.getInstance().setHighTxt(highTxt);
 		highTxt.addActionListener(this);
 		highTxt.setBorder(BorderFactory.createLineBorder(Color.black));
 		highTxt.setBackground(StandardColor.PINK);

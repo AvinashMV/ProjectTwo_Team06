@@ -41,7 +41,7 @@ public class ServerPanelConsole extends JPanel implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		if (o.getClass().getName().equals("MessageObservable")) {
+		if (o.getClass().getName().equals("server.MessageObservable")) {
 			String message = (String) arg;
 			System.out.println(message);
 			if (message.equals("Start")) {
@@ -49,6 +49,10 @@ public class ServerPanelConsole extends JPanel implements Observer {
 			} else {
 				message = "The server has been stopped \n";
 			}
+			consoleLogs.append(message);
+		}
+		if(o.getClass().getName().equals("server.InputObservable")) {
+			String message = (String) arg;
 			consoleLogs.append(message);
 		}
 

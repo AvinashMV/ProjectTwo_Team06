@@ -11,6 +11,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -25,8 +26,14 @@ public class ServerPanelTop extends JPanel implements ActionListener {
 	MessageObservable observable;
 	ServerSocketMain serverSocketMain = MessageHandler.getInstance().getServerSocketMain();
 	ExecutorService executor = Executors.newFixedThreadPool(10);
+	InputObservable inputObservable;
+	FrequencyObservable frequencyObservable;
 
 	public ServerPanelTop() {
+		inputObservable = new InputObservable();
+		observable = new MessageObservable();
+		frequencyObservable = new FrequencyObservable();
+		
 		createAndShowGUI();
 	}
 
@@ -40,9 +47,10 @@ public class ServerPanelTop extends JPanel implements ActionListener {
 		serverControlButton.addActionListener(this);
 		add(test);
 		add(serverControlButton);
-		observable = new MessageObservable();
 		observable.addObserver(MessageHandler.getInstance().getServerStatusPanel());
 		observable.addObserver(MessageHandler.getInstance().getServerPanelConsole());
+		inputObservable.addObserver(MessageHandler.getInstance().getServerPanelConsole());
+		frequencyObservable.addObserver(MessageHandler.getInstance().getServerSocketMain());
 	}
 
 	@Override
@@ -50,6 +58,10 @@ public class ServerPanelTop extends JPanel implements ActionListener {
 		// TODO Auto-generated method stub
 		JButton button = (JButton) e.getSource();
 		if (button.getText().equals("Start")) {
+			if(!performInputValidation()) {
+				return;
+			}
+			
 			button.setText("Stop");
 			startServer();
 			observable.changeData("Start");
@@ -59,6 +71,36 @@ public class ServerPanelTop extends JPanel implements ActionListener {
 			stopServer();
 		}
 
+	}
+
+	private boolean performInputValidation() {
+		JFormattedTextField frequency = ServerDataHandler.getInstance().getFrequency();
+		JFormattedTextField highText =  ServerDataHandler.getInstance().getHighTxt();
+		JFormattedTextField lowText =  ServerDataHandler.getInstance().getLowText();
+		try {
+			int frequencyVal = Integer.parseInt(frequency.getText().replace(",",""));
+			int highValue = Integer.parseInt(highText.getText().replace(",",""));
+			int lowValue = Integer.parseInt(lowText.getText().replace(",",""));
+			if(lowValue > highValue) {
+				throw new Exception("Low value greater than high valye");
+			}
+			
+			ServerDataManager.getInstance().setHighestValue(highValue);
+			ServerDataManager.getInstance().setLowestValue(lowValue);
+			frequencyObservable.changeData(String.valueOf(frequencyVal));
+			
+		}
+		catch(NumberFormatException e){
+			
+			inputObservable.changeData("Please set the arguments properly \n");
+			return false;
+		}
+		catch(Exception e) {
+			inputObservable.changeData(e.getMessage());
+			return false;
+		}
+	
+		return true;
 	}
 
 	private void startServer() {

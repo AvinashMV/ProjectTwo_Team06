@@ -69,6 +69,7 @@ public class ServerSocketMain implements Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		String freq = (String) arg;
+		System.out.print("observer" + freq);
 		frequency = Integer.parseInt(freq);
 
 	}
