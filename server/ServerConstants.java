@@ -29,5 +29,5 @@ public class ServerConstants {
 	public static final String SERVER_START_IMAGE = "serverstarted.gif";
 	public static final String COMMA = ",";
 	public static final String CONSOLE = "CONSOLE";
-	public static final String MESSAGE_OBSERVABLE = "MessageObservable";
+	public static final String MESSAGE_OBSERVABLE = "server.MessageObservable";
 }

@@ -6,7 +6,9 @@ import java.util.Observer;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.border.Border;
 
 /**
@@ -26,9 +28,18 @@ public class ServerPanelConsole extends JPanel implements Observer {
 		setBackground(ServerConstants.SLATE_GREY);
 		consoleLogs = new JTextArea();
 		consoleLogs.setPreferredSize(new Dimension(600, 150));
-		consoleLogs.setText(ServerConstants.SERVER_STATUS_STOP);
+		consoleLogs.setText("Server is not running. \n");
+		consoleLogs.setAutoscrolls(true);
 		add(consoleLabel);
-		add(consoleLogs);
+		JScrollPane scroll = new JScrollPane(consoleLogs, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scroll.setPreferredSize(new Dimension(750, 150));
+		scroll.setEnabled(true);
+		scroll.setVisible(true);
+		scroll.setAutoscrolls(true);
+		this.add(scroll);
+
+		// add(consoleLogs);
 	}
 
 	@Override
