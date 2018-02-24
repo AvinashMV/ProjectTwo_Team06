@@ -1,29 +1,20 @@
 package client;
 
-//package clientServer.ProjectTwo_Team06;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 /**
- * Lab 2, Team 6
+ * ClientPanelMain class initializes the main GUI component
  * 
- * @author SER 516, Gary Morris (#78)
+ * @author Team 06
  */
 public class ClientPanelMain extends JPanel {
-	ClientPanelTop panelTop;
-	ClientPanelData panelData;
-	ClientPanelConsole panelConsole;
+	private ClientPanelTop panelTop;
+	private ClientPanelData panelData;
+	private ClientPanelConsole panelConsole;
 
 	public ClientPanelMain() {
-		createLayout();
-		createAndShowGUI();
-	}
-
-	private void createLayout() {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-	}
-
-	private void createAndShowGUI() {
 		panelData = new ClientPanelData();
 		ClientDataManager.getInstance().setPanelData(panelData);
 		panelTop = new ClientPanelTop();
