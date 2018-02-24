@@ -8,7 +8,7 @@ import javax.swing.JTextPane;
 /**
  * Class ClientDataManager is singleton instance to handle the data manipulation
  * 
- * @author Team 6
+ * @author Team 06
  *
  */
 public class ClientDataManager {
@@ -269,14 +269,11 @@ public class ClientDataManager {
 		String channel = (String) ClientDataManager.getInstance().getChannelDD().getSelectedItem();
 		dump = new ArrayList<>();
 		inputData = new ArrayList<>();
-
 		for (int i = 0; i < Integer.parseInt(channel); i++) {
 			dump.add(new ArrayList<>());
 		}
-
 		for (int i = 0; i < Integer.parseInt(channel); i++) {
 			inputData.add(new ArrayList<>());
 		}
-
 	}
 }

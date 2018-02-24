@@ -1,32 +1,25 @@
 package client;
 
-//package clientServer.ProjectTwo_Team06;
-import java.awt.Color;
 import java.awt.Dimension;
-
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
-
 import server.StandardColor;
 
 /**
- * Lab 2, Team 6
+ * ClientPanelConsole class initializes and set ups attributes for panel
  * 
- * @author SER 516, Gary Morris (#78)
+ * @author Team 6
+ *
  */
 public class ClientPanelConsole extends JPanel {
 
 	public ClientPanelConsole() {
-		createAndShowGUI();
-	}
-
-	private void createAndShowGUI() {
 		Border line = BorderFactory.createLineBorder(StandardColor.LIGHT_BLUE, 5);
 		Border loweredbevel = BorderFactory.createLoweredBevelBorder();
 		setBorder(BorderFactory.createCompoundBorder(line, loweredbevel));
-		JLabel test = new JLabel("CONSOLE");
+		JLabel test = new JLabel(ClientConstants.CONSOLE);
 		test.setPreferredSize(new Dimension(600, 150));
 		setBackground(StandardColor.SLATE_GREY);
 		add(test);
