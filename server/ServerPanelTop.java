@@ -24,49 +24,44 @@ public class ServerPanelTop extends JPanel implements ActionListener {
 	ExecutorService executor = Executors.newFixedThreadPool(10);
 
 	public ServerPanelTop() {
-		createAndShowGUI();
-	}
-
-	private void createAndShowGUI() {
-		JLabel test = new JLabel("TOP");
+		JLabel topLabel = new JLabel("");
 		serverControlButton = new JButton();
-		test.setPreferredSize(new Dimension(600, 50));
+		topLabel.setPreferredSize(new Dimension(600, 50));
 		setBackground(ServerConstants.LIGHT_BLUE);
-		serverControlButton.setText("Start");
+		serverControlButton.setText(ServerConstants.START);
 		serverControlButton.setBackground(Color.PINK);
 		serverControlButton.addActionListener(this);
-		add(test);
+		add(topLabel);
 		add(serverControlButton);
 		observable = new MessageObservable();
 		observable.addObserver(MessageHandler.getInstance().getServerStatusPanel());
 		observable.addObserver(MessageHandler.getInstance().getServerPanelConsole());
 	}
 
+	/*
+	 * @args actionEvent
+	 */
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		JButton button = (JButton) e.getSource();
-		if (button.getText().equals("Start")) {
-			button.setText("Stop");
+	public void actionPerformed(ActionEvent actionEvent) {
+		JButton button = (JButton) actionEvent.getSource();
+		if (button.getText().equals(ServerConstants.START)) {
+			button.setText(ServerConstants.STOP);
 			startServer();
-			observable.changeData("Start");
+			observable.changeData(ServerConstants.START);
 		} else {
-			button.setText("Start");
-			observable.changeData("Stop");
-			stopServer();
+			button.setText(ServerConstants.START);
+			observable.changeData(ServerConstants.STOP);
+			serverSocketMain.closeConnection();
 		}
-
 	}
 
+	/*
+	 * 
+	 */
 	private void startServer() {
 		Runnable runnableTask = () -> {
 			serverSocketMain.startConnection();
 		};
 		executor.execute(runnableTask);
 	}
-
-	private void stopServer() {
-		serverSocketMain.closeConnection();
-	}
-
 }
