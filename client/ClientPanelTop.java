@@ -54,11 +54,15 @@ public class ClientPanelTop extends JPanel implements ActionListener {
 		// TODO Auto-generated method stub
 		JButton button = (JButton) e.getSource();
 		if (button.getText().equals("Start")) {
-			clientSocketMain = new ClientSocketMain();
+			int frequency = getValueOfFrequency();
+			if(frequency == -1) {
+				return;
+			}
 			button.setText("Stop");
-			ClientDataManager.getInstance().initializeArray();
 			clientConsoleObserver.changeData("Start");
-			startServer(getValueOfFrequency());
+			clientSocketMain = new ClientSocketMain();
+			ClientDataManager.getInstance().initializeArray();
+			startServer(frequency);
 			
 		} else {
 			button.setText("Start");
@@ -68,11 +72,24 @@ public class ClientPanelTop extends JPanel implements ActionListener {
 
 	}
 
+
+
 	private int getValueOfFrequency() {
 		JTextPane frequencyTxt = ClientDataManager.getInstance().getFreqText();
-		String frequency = frequencyTxt.getText();
-		Integer freq = Integer.parseInt(frequency);
-		return freq;
+		String frequency = frequencyTxt.getText().replace(",","");
+		try {
+			Integer freq = Integer.parseInt(frequency);
+			if(freq <=0) {
+				throw new NumberFormatException();
+			}
+			return freq;
+		}
+		catch(NumberFormatException e) {
+			clientConsoleObserver.changeData("Please enter a valid frequency \n");
+			return -1;
+		}
+		
+		
 	}
 
 	private void startServer(int frequency) {

@@ -42,6 +42,15 @@ public class ClientPanelConsole extends JPanel implements Observer{
 	@Override
 	public void update(java.util.Observable o, Object arg) {
 		String message = (String) arg;
-		consoleLogs.append(message);
+		if(message.equals("Start")) {
+			consoleLogs.append("Client has started \n");
+		}
+		else if(message.equals("Stop")) {
+			consoleLogs.append("Client has stopped \n");
+		}
+		else {
+			consoleLogs.append(message);
+		}
+		
 	}
 }
