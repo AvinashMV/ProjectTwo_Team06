@@ -29,8 +29,8 @@ public class GraphPlot extends JPanel {
 	}
 
 	/*
-	 * @param baseGraph : Graphics component Function paintComponent
-	 * initializing the graph attributes on 'baseGraph'
+	 * @param baseGraph : Graphics component Function paintComponent initializing
+	 * the graph attributes on 'baseGraph'
 	 */
 	protected void paintComponent(Graphics baseGraph) {
 		super.paintComponent(baseGraph);
@@ -58,8 +58,8 @@ public class GraphPlot extends JPanel {
 	/*
 	 * @param i : index of element in server data
 	 * 
-	 * @param graph : Graphics component Function paintData plots the data
-	 * elements on Graph
+	 * @param graph : Graphics component Function paintData plots the data elements
+	 * on Graph
 	 */
 	private void paintData(int i, Graphics2D graph) {
 		ArrayList<Integer> channelData = serverData.get(i);
@@ -86,8 +86,8 @@ public class GraphPlot extends JPanel {
 	/*
 	 * @param data : channel data
 	 * 
-	 * @return max : maximum data element Function checkMaxDataPoint calculates
-	 * the maximum data point from data stream
+	 * @return max : maximum data element Function checkMaxDataPoint calculates the
+	 * maximum data point from data stream
 	 */
 	private int checkMaxDataPoint(ArrayList<Integer> data) {
 		int max = -Integer.MAX_VALUE;

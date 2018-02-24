@@ -2,8 +2,6 @@ package client;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
-
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -19,21 +17,21 @@ import server.StandardColor;
 public class ClientPanelAverage extends JPanel {
 
 	public ClientPanelAverage() {
-		JPanel test = new JPanel();
+		JPanel clientPanel = new JPanel();
 		JLabel averageLabel = new JLabel(ClientConstants.AVERAGE_LABEL);
 		JTextPane avgText = new JTextPane();
 		averageLabel.setFont(ClientConstants.TEXT_FONT);
 		averageLabel.setSize(85, 60);
-		test.setPreferredSize(new Dimension(85, 60));
-		test.setBackground(StandardColor.LIGHT_BLUE);
-		test.setBorder(BorderFactory.createLineBorder(Color.black));
+		clientPanel.setPreferredSize(new Dimension(85, 60));
+		clientPanel.setBackground(StandardColor.LIGHT_BLUE);
+		clientPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		ClientDataManager.getInstance().setAvgText(avgText);
 		avgText.setBorder(BorderFactory.createLineBorder(Color.black));
 		avgText.setBackground(StandardColor.PINK);
 		avgText.setPreferredSize(new Dimension(85, 60));
 		avgText.setEditable(false);
-		add(test);
-		test.add(averageLabel);
+		add(clientPanel);
+		clientPanel.add(averageLabel);
 		add(avgText);
 	}
 

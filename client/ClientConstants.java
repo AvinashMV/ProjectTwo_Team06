@@ -14,4 +14,7 @@ public class ClientConstants {
 	public static final String CONSOLE = "CONSOLE";
 	public static final String HIGHEST_VALUE = "<html>Highest<br>Value</html>";
 	public static final String LOWEST_VALUE = "<html>Lowest<br>Value</html>";
+	public static final String CHANNELS = "<html>Channels:</html>";
+	public static final String START = "Start";
+	public static final String STOP = "Stop";
 }

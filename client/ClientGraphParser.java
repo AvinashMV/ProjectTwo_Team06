@@ -32,7 +32,6 @@ public class ClientGraphParser {
 	 */
 	public ClientGraphParser(int frequency) {
 		this.frequency = frequency;
-		System.out.println("MY frequency is" + frequency);
 	}
 
 	/*
@@ -68,11 +67,9 @@ public class ClientGraphParser {
 			panelData.add(info);
 			panelData.repaint();
 			panelData.revalidate();
-
 			try {
 				Thread.sleep(frequency);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -91,8 +88,8 @@ public class ClientGraphParser {
 	}
 
 	/*
-	 * calculateControlValues function calculates the minimum, maximum 
-	 * and average values
+	 * calculateControlValues function calculates the minimum, maximum and average
+	 * values
 	 */
 	private void calculateControlValues(ArrayList<Integer> controlValues) {
 		average = average * count;
@@ -127,7 +124,5 @@ public class ClientGraphParser {
 			Color randomColor = new Color(r, g, b);
 			colors.add(randomColor);
 		}
-
 	}
-
 }

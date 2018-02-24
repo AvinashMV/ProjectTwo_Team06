@@ -20,21 +20,21 @@ public class ClientPanelChannels extends JPanel {
 	JComboBox<String> channelDD;
 
 	public ClientPanelChannels() {
-		JPanel test = new JPanel();
-		JLabel channelLabel = new JLabel("<html>Channels:</html>");
+		JPanel clientPanel = new JPanel();
+		JLabel channelLabel = new JLabel(ClientConstants.CHANNELS);
 		channelLabel.setFont(ClientConstants.TEXT_FONT);
 		channelLabel.setSize(85, 60);
-		test.setPreferredSize(new Dimension(85, 60));
-		test.setBackground(StandardColor.PINK);
-		test.setBorder(BorderFactory.createLineBorder(Color.black));
+		clientPanel.setPreferredSize(new Dimension(85, 60));
+		clientPanel.setBackground(StandardColor.PINK);
+		clientPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		channelDD = new JComboBox<String>(valuesForDropDown);
 		channelDD.setPreferredSize(new Dimension(85, 60));
 		channelDD.setVisible(true);
 		channelDD.setBorder(BorderFactory.createLineBorder(Color.black));
 		channelDD.setBackground(StandardColor.LIGHT_BLUE);
 		ClientDataManager.getInstance().setChannelDD(channelDD);
-		add(test);
-		test.add(channelLabel);
+		add(clientPanel);
+		clientPanel.add(channelLabel);
 		add(channelDD);
 	}
 }
