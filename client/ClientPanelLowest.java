@@ -17,21 +17,21 @@ import server.ServerConstants;
 public class ClientPanelLowest extends JPanel {
 
 	public ClientPanelLowest() {
-		JPanel test = new JPanel();
+		JPanel clientPanel = new JPanel();
 		JLabel lowLabel = new JLabel(ClientConstants.LOWEST_VALUE);
 		lowLabel.setFont(ClientConstants.TEXT_FONT);
 		lowLabel.setSize(85, 60);
-		test.setPreferredSize(new Dimension(85, 60));
-		test.setBackground(ServerConstants.PINK);
-		test.setBorder(BorderFactory.createLineBorder(Color.black));
+		clientPanel.setPreferredSize(new Dimension(85, 60));
+		clientPanel.setBackground(ServerConstants.PINK);
+		clientPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		JTextPane lowTxt = new JTextPane();
 		ClientDataManager.getInstance().setLowTxt(lowTxt);
 		lowTxt.setBorder(BorderFactory.createLineBorder(Color.black));
 		lowTxt.setBackground(ServerConstants.LIGHT_BLUE);
 		lowTxt.setPreferredSize(new Dimension(85, 60));
 		lowTxt.setEditable(false);
-		add(test);
-		test.add(lowLabel);
+		add(clientPanel);
+		clientPanel.add(lowLabel);
 		add(lowTxt);
 	}
 

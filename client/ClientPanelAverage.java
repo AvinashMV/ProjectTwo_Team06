@@ -17,10 +17,8 @@ import server.ServerConstants;
 public class ClientPanelAverage extends JPanel {
 
 	public ClientPanelAverage() {
-
 		JPanel clientPanel = new JPanel();
 		JLabel averageLabel = new JLabel(ClientConstants.AVERAGE_LABEL);
-
 		JTextPane avgText = new JTextPane();
 		averageLabel.setFont(ClientConstants.TEXT_FONT);
 		averageLabel.setSize(85, 60);

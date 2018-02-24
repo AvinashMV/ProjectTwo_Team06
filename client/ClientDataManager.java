@@ -18,21 +18,15 @@ public class ClientDataManager {
 	private ArrayList<ArrayList<Integer>> dump;
 	private ArrayList<ArrayList<Integer>> inputData;
 	private JTextPane freqText;
-
 	ClientPanelConsole panelConsole;
 	
-	
-	
-
 	public ClientPanelConsole getPanelConsole() {
 		return panelConsole;
 	}
 
-
 	public void setPanelConsole(ClientPanelConsole panelConsole) {
 		this.panelConsole = panelConsole;
 	}
-
 
 	private ClientPanelData panelData;
 	private ClientPanelInfo info;

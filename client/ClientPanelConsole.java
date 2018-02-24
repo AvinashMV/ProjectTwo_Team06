@@ -42,6 +42,5 @@ public class ClientPanelConsole extends JPanel implements Observer {
 		} else {
 			consoleLogs.append(message);
 		}
-
 	}
 }
