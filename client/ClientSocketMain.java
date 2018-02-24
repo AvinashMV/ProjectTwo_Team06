@@ -1,4 +1,5 @@
 package client;
+
 import java.io.*;
 import java.io.IOException;
 import java.net.*;
@@ -9,36 +10,38 @@ import java.util.concurrent.Executors;
 import javax.swing.JComboBox;
 
 /**
+ * 
  * @author Team 6
  */
 
 public class ClientSocketMain {
-	Socket s;
-	DataInputStream din;
-	DataOutputStream dout;
-	BufferedReader br;
+	Socket socket;
+	DataInputStream dataInputStream;
+	DataOutputStream dataOutputStream;
 	ClientDataManager clientDataManager = ClientDataManager.getInstance();
 	boolean flag = true;
 	ExecutorService executor = Executors.newFixedThreadPool(10);
 	int frequency;
 
+	/* Sets the input stream from server
+	@params frequency
+	*/
 	public void startConnection(int frequency) {
 		this.frequency = frequency;
 		try {
-			s = new Socket("127.0.0.1", 1201);
-			din = new DataInputStream(s.getInputStream());
-			dout = new DataOutputStream(s.getOutputStream());
-			br = new BufferedReader(new InputStreamReader(System.in));
+			socket = new Socket("127.0.0.1", 1201);
+			dataInputStream = new DataInputStream(socket.getInputStream());
+			dataOutputStream = new DataOutputStream(socket.getOutputStream());
 			String msgin = "", msgout = "";
 			String channel = getChannelValue();
 			while (!msgin.equals("end")) {
-				dout.writeUTF(channel);
-				msgin = din.readUTF();
-				System.out.println(msgin);
+				dataOutputStream.writeUTF(channel);
+				msgin = dataInputStream.readUTF();
+
 				setData(msgin);
 				startGraphPlot();
 			}
-			s.close();
+			socket.close();
 		} catch (Exception e) {
 		}
 	}
@@ -60,7 +63,10 @@ public class ClientSocketMain {
 			executor.execute(runnableTask);
 		}
 	}
-
+	
+	/* Sets the input stream from server
+	@params msgin
+	*/
 	private void setData(String msgin) {
 		ArrayList<ArrayList<Integer>> serverData = clientDataManager.getDump();
 		String[] data = msgin.split(",");
@@ -71,10 +77,9 @@ public class ClientSocketMain {
 
 	public void closeConnection() {
 		try {
-			din.close();
-			dout.close();
-			br.close();
-			s.close();
+			dataInputStream.close();
+			dataOutputStream.close();
+			socket.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
