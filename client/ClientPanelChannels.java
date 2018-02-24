@@ -4,16 +4,13 @@ package client;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextPane;
 
-import server.StandardColor;
+import server.ServerConstants;
 
 /**
  * Lab 2, Team 6
@@ -37,7 +34,7 @@ public class ClientPanelChannels extends JPanel {
 		channelLabel.setFont(new Font("SansSerif", Font.BOLD, 15));
 		channelLabel.setSize(85, 60);
 		test.setPreferredSize(new Dimension(85, 60));
-		test.setBackground(StandardColor.PINK);
+		test.setBackground(ServerConstants.PINK);
 		test.setBorder(BorderFactory.createLineBorder(Color.black));
 
 		// added text panel where the lowest value will go.
@@ -45,7 +42,7 @@ public class ClientPanelChannels extends JPanel {
 		channelDD.setPreferredSize(new Dimension(85, 60));
 		channelDD.setVisible(true);
 		channelDD.setBorder(BorderFactory.createLineBorder(Color.black));
-		channelDD.setBackground(StandardColor.LIGHT_BLUE);
+		channelDD.setBackground(ServerConstants.LIGHT_BLUE);
 		ClientDataManager.getInstance().setChannelDD(channelDD);
 		add(test);
 		test.add(channelLabel);

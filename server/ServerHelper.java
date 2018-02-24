@@ -1,4 +1,5 @@
 package server;
+
 import java.text.NumberFormat;
 
 /**
@@ -9,8 +10,17 @@ import java.text.NumberFormat;
 
 import javax.swing.text.NumberFormatter;
 
+/**
+ * The ServerHelper class
+ * 
+ * @author Team 06
+ * @version 1.0
+ */
 public class ServerHelper {
-
+	/*
+	 * Function for number format checking
+	 * @return Formatted number
+	 */
 	public static NumberFormatter formatter() {
 		NumberFormat longFormat = NumberFormat.getIntegerInstance();
 		NumberFormatter numberFormatter = new NumberFormatter(longFormat);
@@ -19,5 +29,4 @@ public class ServerHelper {
 		numberFormatter.setMinimum(0l);
 		return numberFormatter;
 	}
-
 }

@@ -1,13 +1,14 @@
 package server;
+
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Lab 2, Team 6
+ * The ServerControlPanel class
  * 
- * @author SER 516, Garv Mathur (#72)
+ * @author Team 06
+ * @version 1.0
  */
-
 public class ServerDataManager {
 
 	private static volatile ServerDataManager serverDataManager;
@@ -28,19 +29,6 @@ public class ServerDataManager {
 	private ServerDataManager() {
 	}
 
-	public static ServerDataManager getInstance() {
-		ServerDataManager result = serverDataManager;
-		if (result == null) {
-			synchronized (mutex) {
-				result = serverDataManager;
-				if (result == null)
-					result = new ServerDataManager();
-				serverDataManager = result;
-			}
-		}
-		return result;
-	}
-
 	public static int getChannels() {
 		return channels;
 	}
@@ -54,7 +42,6 @@ public class ServerDataManager {
 	}
 
 	public static void setHighestValue(long highestValue) {
-		System.out.println("afsaf");
 		ServerDataManager.highestValue = highestValue;
 	}
 
@@ -66,6 +53,26 @@ public class ServerDataManager {
 		ServerDataManager.lowestValue = lowestValue;
 	}
 
+	/*
+	 * Singleton instance creation method
+	 * @return result
+	 */
+	public static ServerDataManager getInstance() {
+		ServerDataManager result = serverDataManager;
+		if (result == null) {
+			synchronized (mutex) {
+				result = serverDataManager;
+				if (result == null)
+					result = new ServerDataManager();
+				serverDataManager = result;
+			}
+		}
+		return result;
+	}
+
+	/*Singleton random number generation method
+	 * @result result
+	 */
 	public static String generateNumbers() {
 		ArrayList<Long> list = new ArrayList<>();
 		for (int i = 0; i < ServerDataManager.channels; i++) {
@@ -75,11 +82,10 @@ public class ServerDataManager {
 		StringBuilder data = new StringBuilder();
 		for (int i = 0; i < list.size(); i++) {
 			data.append(String.valueOf(list.get(i)));
-			data.append(",");
+			data.append(ServerConstants.COMMA);
 		}
 		String result = data.toString();
-		result = result.substring(0, result.length() - ",".length());
+		result = result.substring(0, result.length() - 1);
 		return result;
 	}
-
 }

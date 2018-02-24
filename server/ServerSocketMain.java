@@ -6,56 +6,55 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * Lab 2, Team 6
+ * The ServerPanelConsole class
  * 
- * @author SER 516, Garv Mathur (#72)
+ * @author Team 06
+ * @version 1.0
  */
-
 public class ServerSocketMain implements Observer {
 
-	Socket s;
-	ServerSocket ss;
-	DataInputStream din;
-	DataOutputStream dout;
-	BufferedReader br;
+	Socket socket;
+	ServerSocket serverSocket;
+	DataInputStream dataInputStream;
+	DataOutputStream dataOutputStream;
+	BufferedReader bufferedReader;
 	int count = 1;
 	int frequency = 2000;
 	boolean flag;
 
-	public ServerSocketMain() {
-	}
-
+	/*Starts and listens to the connection for the server
+	 * 
+	 */
 	public void startConnection() {
 		try {
-			ss = new ServerSocket(1201);
-			s = ss.accept();
+			serverSocket = new ServerSocket(1201);
+			socket = serverSocket.accept();
 
-			din = new DataInputStream(s.getInputStream());
+			dataInputStream = new DataInputStream(socket.getInputStream());
 
-			dout = new DataOutputStream(s.getOutputStream());
+			dataOutputStream = new DataOutputStream(socket.getOutputStream());
 
-			String msgin = "", msgout = "";
+			String message = "", msgout = "";
 			flag = true;
 			while (flag) {
-				msgin = din.readUTF();
+				message = dataInputStream.readUTF();
 				if (count < 2) {
-					addChannel(msgin);
+					ServerDataManager.getInstance();
+					ServerDataManager.setChannels(Integer.parseInt(message));
 				}
 				Thread.sleep(frequency);
-				dout.writeUTF(ServerDataManager.getInstance().generateNumbers());
-				dout.flush();
-				
+				dataOutputStream.writeUTF(ServerDataManager.getInstance().generateNumbers());
+				dataOutputStream.flush();
 			}
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 		finally {
 			try {
-				din.close();
-				dout.close();
-				br.close();
-				s.close();
-				ss.close();
+				dataInputStream.close();
+				dataOutputStream.close();
+				socket.close();
+				serverSocket.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -66,18 +65,24 @@ public class ServerSocketMain implements Observer {
 	}
 
 
+
 	private void addChannel(String msgin) {
 		ServerDataManager.getInstance().setChannels(Integer.parseInt(msgin));
 	}
 
 	public void closeConnection() {
 		this.flag = false;
+
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	 */
 	@Override
-	public void update(Observable o, Object arg) {
+	public void update(Observable observable, Object arg) {
 		String freq = (String) arg;
 		frequency = Integer.parseInt(freq);
-
 	}
 }

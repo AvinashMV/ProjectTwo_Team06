@@ -1,12 +1,9 @@
 package server;
 
-//package clientServer.ProjectTwo_Team06;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Observable;
-import java.util.Observer;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -17,10 +14,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * Lab 2, Team 6
+ * The ServerPanelConsole class
  * 
- * @author SER 516, Gary Morris (#78)
- * @author SER 516, Rishab Mantri (#69)
+ * @author Team 06
+ * @version 1.0
  */
 public class ServerPanelTop extends JPanel implements ActionListener {
 	JButton serverControlButton;
@@ -30,24 +27,24 @@ public class ServerPanelTop extends JPanel implements ActionListener {
 	InputObservable inputObservable;
 	FrequencyObservable frequencyObservable;
 
-
 	public ServerPanelTop() {
 		inputObservable = new InputObservable();
 		observable = new MessageObservable();
 		frequencyObservable = new FrequencyObservable();
-		
+
 		createAndShowGUI();
 	}
 
 	private void createAndShowGUI() {
-		JLabel test = new JLabel("TOP");
+		JLabel topLabel = new JLabel("");
+
 		serverControlButton = new JButton();
-		test.setPreferredSize(new Dimension(600, 50));
-		setBackground(StandardColor.LIGHT_BLUE);
-		serverControlButton.setText("Start");
+		topLabel.setPreferredSize(new Dimension(600, 50));
+		setBackground(ServerConstants.LIGHT_BLUE);
+		serverControlButton.setText(ServerConstants.START);
 		serverControlButton.setBackground(Color.PINK);
 		serverControlButton.addActionListener(this);
-		add(test);
+		add(topLabel);
 		add(serverControlButton);
 		observable.addObserver(MessageHandler.getInstance().getServerStatusPanel());
 		observable.addObserver(MessageHandler.getInstance().getServerPanelConsole());
@@ -55,52 +52,54 @@ public class ServerPanelTop extends JPanel implements ActionListener {
 		frequencyObservable.addObserver(MessageHandler.getInstance().getServerSocketMain());
 	}
 
+	/*
+	 * Setting the start stop action for the starting and stopping connection
+	 * 
+	 * @args actionEvent
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		JButton button = (JButton) e.getSource();
 		if (button.getText().equals("Start")) {
-			if(!performInputValidation()) {
+			if (!performInputValidation()) {
 				return;
 			}
-			
+
 			button.setText("Stop");
 			startServer();
-			observable.changeData("Start");
+			observable.changeData(ServerConstants.START);
 		} else {
-			button.setText("Start");
-			observable.changeData("Stop");
-			stopServer();
+			button.setText(ServerConstants.START);
+			observable.changeData(ServerConstants.STOP);
+			serverSocketMain.closeConnection();
 		}
-
 	}
 
 	private boolean performInputValidation() {
 		JFormattedTextField frequency = ServerDataHandler.getInstance().getFrequency();
-		JFormattedTextField highText =  ServerDataHandler.getInstance().getHighTxt();
-		JFormattedTextField lowText =  ServerDataHandler.getInstance().getLowText();
+		JFormattedTextField highText = ServerDataHandler.getInstance().getHighTxt();
+		JFormattedTextField lowText = ServerDataHandler.getInstance().getLowText();
 		try {
-			int frequencyVal = Integer.parseInt(frequency.getText().replace(",",""));
-			int highValue = Integer.parseInt(highText.getText().replace(",",""));
-			int lowValue = Integer.parseInt(lowText.getText().replace(",",""));
-			if(lowValue > highValue) {
+			int frequencyVal = Integer.parseInt(frequency.getText().replace(",", ""));
+			int highValue = Integer.parseInt(highText.getText().replace(",", ""));
+			int lowValue = Integer.parseInt(lowText.getText().replace(",", ""));
+			if (lowValue > highValue) {
 				throw new Exception("Low value greater than high value");
 			}
-			
+
 			ServerDataManager.getInstance().setHighestValue(highValue);
 			ServerDataManager.getInstance().setLowestValue(lowValue);
 			frequencyObservable.changeData(String.valueOf(frequencyVal));
-			
-		}
-		catch(NumberFormatException e){
+
+		} catch (NumberFormatException e) {
 			inputObservable.changeData("Please set the arguments properly \n");
 			return false;
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			inputObservable.changeData(e.getMessage());
 			return false;
 		}
-	
+
 		return true;
 	}
 

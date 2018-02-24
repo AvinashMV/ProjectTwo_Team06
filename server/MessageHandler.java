@@ -1,10 +1,11 @@
 package server;
-/**
- * Lab 2, Team 6
- * 
- * @author SER 516, Garv Mathur (#72)
- */
 
+/**
+ * The MessageHandler class
+ * 
+ * @author Team 06
+ * @version 1.0
+ */
 public class MessageHandler {
 
 	private static volatile MessageHandler messageHandler;
@@ -49,6 +50,10 @@ public class MessageHandler {
 	private MessageHandler() {
 	}
 
+	/*
+	 * Singleton instance creation method
+	 * @return result
+	 */
 	public static MessageHandler getInstance() {
 		MessageHandler result = messageHandler;
 		if (result == null) {

@@ -12,7 +12,8 @@ import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
 import javafx.beans.Observable;
-import server.StandardColor;
+import server.ServerConstants;
+
 
 /**
  * Lab 2, Team 6
@@ -27,14 +28,14 @@ public class ClientPanelConsole extends JPanel implements Observer{
 	}
 
 	private void createAndShowGUI() {
-		Border line = BorderFactory.createLineBorder(StandardColor.LIGHT_BLUE, 5);
+		Border line = BorderFactory.createLineBorder(ServerConstants.LIGHT_BLUE, 5);
 		Border loweredbevel = BorderFactory.createLoweredBevelBorder();
 		setBorder(BorderFactory.createCompoundBorder(line, loweredbevel));
 		JLabel test = new JLabel("CONSOLE");
 		consoleLogs = new JTextArea();
 		consoleLogs.setPreferredSize(new Dimension(600, 150));
 		consoleLogs.setText("Not connected to server. \n");
-		setBackground(StandardColor.SLATE_GREY);
+		setBackground(ServerConstants.SLATE_GREY);
 		add(test);
 		add(consoleLogs);
 	}

@@ -7,7 +7,8 @@ import java.awt.Font;
 
 import javax.swing.*;
 
-import server.StandardColor;
+import server.ServerConstants;
+
 
 /**
  * Lab 2, Team 6
@@ -29,14 +30,14 @@ public class ClientPanelHighest extends JPanel {
 		highLabel.setFont(new Font("SansSerif", Font.BOLD, 15));
 		highLabel.setSize(85, 60);
 		test.setPreferredSize(new Dimension(85, 60));
-		test.setBackground(StandardColor.LIGHT_BLUE);
+		test.setBackground(ServerConstants.LIGHT_BLUE);
 		test.setBorder(BorderFactory.createLineBorder(Color.black));
 
 		// added text panel where the highest value will go.
 		JTextPane highTxt = new JTextPane();
 		ClientDataManager.getInstance().setHighTxt(highTxt);
 		highTxt.setBorder(BorderFactory.createLineBorder(Color.black));
-		highTxt.setBackground(StandardColor.PINK);
+		highTxt.setBackground(ServerConstants.PINK);
 		highTxt.setPreferredSize(new Dimension(85, 60));
 		highTxt.setEditable(false);
 

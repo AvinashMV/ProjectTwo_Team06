@@ -1,19 +1,23 @@
 package server;
+
 import java.util.Observable;
 
 /**
- * Lab 2, Team 6
+ * The FrequencyObservable class
  * 
- * @author SER 516, Garv Mathur (#72)
+ * @author Team 06
+ * @version 1.0
  */
-
 class FrequencyObservable extends Observable {
 	FrequencyObservable() {
 		super();
 	}
 
+	/*
+	 * Observable method to notify observing frequency 
+	 */
 	void changeData(Object data) {
-		setChanged(); // the two methods of Observable class
+		setChanged();
 		notifyObservers(data);
 	}
 }

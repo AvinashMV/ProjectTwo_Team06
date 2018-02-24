@@ -5,7 +5,8 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-import server.StandardColor;
+import server.ServerConstants;
+
 
 /**
  * Lab 2, Team 6
@@ -19,10 +20,10 @@ public class ClientPanelData extends JPanel {
 	}
 
 	private void createAndShowGUI() {
-		Border line = BorderFactory.createLineBorder(StandardColor.LIGHT_BLUE, 5);
+		Border line = BorderFactory.createLineBorder(ServerConstants.LIGHT_BLUE, 5);
 		Border loweredbevel = BorderFactory.createLoweredBevelBorder();
 		setBorder(BorderFactory.createCompoundBorder(line, loweredbevel));
-		setBackground(StandardColor.SLATE_GREY);
+		setBackground(ServerConstants.SLATE_GREY);
 		ClientPanelGraph graph = new ClientPanelGraph();
 		ClientPanelInfo info = new ClientPanelInfo();
 		ClientDataManager.getInstance().setInfo(info);

@@ -1,53 +1,41 @@
 package server;
 
-//package clientServer.ProjectTwo_Team06;
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.Toolkit;
 import java.net.MalformedURLException;
-
 import javax.swing.BorderFactory;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSeparator;
 import javax.swing.JSplitPane;
 import javax.swing.border.Border;
 
 /**
- * Lab 2, Team 6
+ * The ServerPanelConsole class
  * 
- * @author SER 516, Gary Morris (#78)
- * @author SER 516, Rishab Mantri (#69)
+ * @author Team 06
+ * @version 1.0
  */
 public class ServerPanelData extends JPanel {
 	ServerStatusPanel serverStatusPanel;
 	ServerControlPanel serverControlPanel;
-	JSplitPane sPane;
+	JSplitPane splitPane;
 
+	/*
+	 * Sets the look and feel of the Sever Data Panel and sets value
+	 * 
+	 */
 	public ServerPanelData() {
-		createLayout();
-		createAndShowGUI();
-	}
-
-	private void createLayout() {
 		setLayout(new GridLayout());
-	}
-
-	private void createAndShowGUI() {
 		setPreferredSize(new Dimension(400, 400));
-		setBackground(StandardColor.PINK);
+		setBackground(ServerConstants.PINK);
 		try {
 			serverStatusPanel = new ServerStatusPanel();
 			MessageHandler.getInstance().setServerStatusPanel(serverStatusPanel);
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		serverControlPanel = new ServerControlPanel();
 		JSplitPane splitPane = new JSplitPane();
-		Border line = BorderFactory.createLineBorder(StandardColor.LIGHT_BLUE, 5);
+		Border line = BorderFactory.createLineBorder(ServerConstants.LIGHT_BLUE, 5);
 		Border loweredbevel = BorderFactory.createLoweredBevelBorder();
 		setBorder(BorderFactory.createCompoundBorder(line, loweredbevel));
 		splitPane.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
@@ -55,6 +43,5 @@ public class ServerPanelData extends JPanel {
 		splitPane.setLeftComponent(serverStatusPanel);
 		splitPane.setRightComponent(serverControlPanel);
 		add(splitPane);
-
 	}
 }

@@ -10,7 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
-import server.StandardColor;
+import server.ServerConstants;
+
 
 /**
  * Lab 2, Team 6
@@ -33,13 +34,13 @@ public class ClientPanelFrequency extends JPanel {
 		freqLabel.setFont(new Font("SansSerif", Font.BOLD, 15));
 		freqLabel.setSize(85, 60);
 		test.setPreferredSize(new Dimension(85, 60));
-		test.setBackground(StandardColor.LIGHT_BLUE);
+		test.setBackground(ServerConstants.LIGHT_BLUE);
 		test.setBorder(BorderFactory.createLineBorder(Color.black));
 
 		// added text panel where the frequency value will go.
 		freqText = new JTextPane();
 		freqText.setBorder(BorderFactory.createLineBorder(Color.black));
-		freqText.setBackground(StandardColor.PINK);
+		freqText.setBackground(ServerConstants.PINK);
 		freqText.setPreferredSize(new Dimension(85, 60));
 		ClientDataManager.getInstance().setFreqText(freqText);
 		add(test);
