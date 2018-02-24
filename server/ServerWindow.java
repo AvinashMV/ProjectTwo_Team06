@@ -12,12 +12,18 @@ import javax.swing.JFrame;
  */
 public class ServerWindow extends JFrame {
 
+	/*
+	 * @param
+	 */
 	public static void main(String[] args) {
 		MessageHandler.getInstance().setServerSocketMain(new ServerSocketMain());
 		ServerWindow serverWindow = new ServerWindow();
 		serverWindow.createAndShowGUI();
 	}
 
+	/*
+	 * 
+	 */
 	private void createAndShowGUI() {
 		setTitle(ServerConstants.SERVER_TITLE);
 		add(new ServerPanelMain());
@@ -28,6 +34,9 @@ public class ServerWindow extends JFrame {
 		setVisible(true);
 	}
 
+	/*
+	 * @param frame
+	 */
 	private void centerGUI(JFrame frame) {
 		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 		int w = frame.getSize().width;

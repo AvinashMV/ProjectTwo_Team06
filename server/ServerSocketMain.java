@@ -21,6 +21,9 @@ public class ServerSocketMain implements Observer {
 	int count = 1;
 	int frequency = 2000;
 
+	/*
+	 * 
+	 */
 	public void startConnection() {
 		try {
 			serverSocket = new ServerSocket(1201);
@@ -43,6 +46,9 @@ public class ServerSocketMain implements Observer {
 		}
 	}
 
+	/*
+	 * 
+	 */
 	public void closeConnection() {
 		try {
 			dataInputStream.close();
@@ -55,8 +61,13 @@ public class ServerSocketMain implements Observer {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	 */
 	@Override
-	public void update(Observable o, Object arg) {
+	public void update(Observable observable, Object arg) {
 		String freq = (String) arg;
 		frequency = Integer.parseInt(freq);
 	}

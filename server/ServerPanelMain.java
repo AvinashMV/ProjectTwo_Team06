@@ -14,6 +14,9 @@ public class ServerPanelMain extends JPanel {
 	ServerPanelData panelData;
 	ServerPanelConsole panelConsole;
 
+	/*
+	 * 
+	 */
 	public ServerPanelMain() {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		panelConsole = new ServerPanelConsole();

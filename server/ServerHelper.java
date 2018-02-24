@@ -17,7 +17,9 @@ import javax.swing.text.NumberFormatter;
  * @version 1.0
  */
 public class ServerHelper {
-
+	/*
+	 * 
+	 */
 	public static NumberFormatter formatter() {
 		NumberFormat longFormat = NumberFormat.getIntegerInstance();
 		NumberFormatter numberFormatter = new NumberFormatter(longFormat);

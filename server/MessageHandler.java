@@ -50,6 +50,9 @@ public class MessageHandler {
 	private MessageHandler() {
 	}
 
+	/*
+	 * @return result
+	 */
 	public static MessageHandler getInstance() {
 		MessageHandler result = messageHandler;
 		if (result == null) {

@@ -23,6 +23,9 @@ public class ServerPanelLowest extends JPanel implements ActionListener {
 	JFormattedTextField lowTxt;
 	int lowestValue;
 
+	/*
+	 * 
+	 */
 	public ServerPanelLowest() {
 		lowestValuePanel = new JPanel();
 		lowLabel = new JLabel(ServerConstants.LOWEST_LABEL);
@@ -43,14 +46,20 @@ public class ServerPanelLowest extends JPanel implements ActionListener {
 		add(lowTxt);
 	}
 
+	/*
+	 * @return lowestValue
+	 */
 	public int getLowestValue() {
 		lowestValue = Integer.parseInt(lowTxt.getText());
 		return lowestValue;
 	}
 
+	/*
+	 * @param actionEvent
+	 */
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		JFormattedTextField lowText = (JFormattedTextField) e.getSource();
+	public void actionPerformed(ActionEvent actionEvent) {
+		JFormattedTextField lowText = (JFormattedTextField) actionEvent.getSource();
 		Long low = (Long) lowText.getValue();
 		ServerDataManager.getInstance();
 		ServerDataManager.setLowestValue(low);

@@ -13,6 +13,9 @@ class FrequencyObservable extends Observable {
 		super();
 	}
 
+	/*
+	 * 
+	 */
 	void changeData(Object data) {
 		setChanged();
 		notifyObservers(data);

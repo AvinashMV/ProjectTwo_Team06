@@ -44,6 +44,9 @@ public class ServerDataManager {
 		ServerDataManager.lowestValue = lowestValue;
 	}
 
+	/*
+	 * @return result
+	 */
 	public static ServerDataManager getInstance() {
 		ServerDataManager result = serverDataManager;
 		if (result == null) {
@@ -57,6 +60,9 @@ public class ServerDataManager {
 		return result;
 	}
 
+	/*
+	 * @result result
+	 */
 	public static String generateNumbers() {
 		ArrayList<Long> list = new ArrayList<>();
 		for (int i = 0; i < ServerDataManager.channels; i++) {

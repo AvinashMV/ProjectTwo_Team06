@@ -22,6 +22,9 @@ public class ServerPanelHighest extends JPanel implements ActionListener {
 	JFormattedTextField highTxt;
 	int highestValue;
 
+	/*
+	 * @param actionEvent
+	 */
 	public ServerPanelHighest() {
 		highestValuePanel = new JPanel();
 		highLabel = new JLabel(ServerConstants.HIGHEST_LABEL);
@@ -42,14 +45,20 @@ public class ServerPanelHighest extends JPanel implements ActionListener {
 		add(highTxt);
 	}
 
+	/*
+	 * @return highestValue
+	 */
 	public int getHighestValue() {
 		highestValue = Integer.parseInt(highTxt.getText());
 		return highestValue;
 	}
 
+	/*
+	 * @param actionEvent
+	 */
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		JFormattedTextField highText = (JFormattedTextField) e.getSource();
+	public void actionPerformed(ActionEvent actionEvent) {
+		JFormattedTextField highText = (JFormattedTextField) actionEvent.getSource();
 		Long high = (Long) highText.getValue();
 		ServerDataManager.getInstance();
 		ServerDataManager.setHighestValue(high);

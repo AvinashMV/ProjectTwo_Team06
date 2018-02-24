@@ -20,6 +20,9 @@ import javax.swing.border.Border;
 public class ServerPanelConsole extends JPanel implements Observer {
 	JTextArea consoleLogs;
 
+	/*
+	 * 
+	 */
 	public ServerPanelConsole() {
 		Border line = BorderFactory.createLineBorder(ServerConstants.LIGHT_BLUE, 5);
 		Border loweredbevel = BorderFactory.createLoweredBevelBorder();
@@ -38,13 +41,16 @@ public class ServerPanelConsole extends JPanel implements Observer {
 		scroll.setVisible(true);
 		scroll.setAutoscrolls(true);
 		this.add(scroll);
-
-		// add(consoleLogs);
 	}
 
+	/*
+	 * @param observable
+	 * 
+	 * @param arg
+	 */
 	@Override
-	public void update(Observable o, Object arg) {
-		if (o.getClass().getName().equals(ServerConstants.MESSAGE_OBSERVABLE)) {
+	public void update(Observable observable, Object arg) {
+		if (observable.getClass().getName().equals(ServerConstants.MESSAGE_OBSERVABLE)) {
 			String message = (String) arg;
 			if (message.equals(ServerConstants.START)) {
 				message = ServerConstants.START_MESSAGE;

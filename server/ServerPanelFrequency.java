@@ -23,6 +23,9 @@ public class ServerPanelFrequency extends JPanel implements ActionListener {
 	int frequency;
 	FrequencyObservable observable;
 
+	/*
+	 * 
+	 */
 	public ServerPanelFrequency() {
 		frequencyPanel = new JPanel();
 		frequencyLabel = new JLabel(ServerConstants.FREQUENCY_LABEL);
@@ -45,9 +48,12 @@ public class ServerPanelFrequency extends JPanel implements ActionListener {
 		add(frequencyTxt);
 	}
 
+	/*
+	 * @param actionEvent
+	 */
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		JFormattedTextField frequency = (JFormattedTextField) e.getSource();
+	public void actionPerformed(ActionEvent actionEvent) {
+		JFormattedTextField frequency = (JFormattedTextField) actionEvent.getSource();
 		observable.changeData(frequency.getValue());
 	}
 }

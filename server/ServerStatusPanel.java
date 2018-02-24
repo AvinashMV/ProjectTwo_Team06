@@ -16,6 +16,9 @@ import javax.swing.JPanel;
 public class ServerStatusPanel extends JPanel implements Observer {
 	JLabel imageLabel;
 
+	/*
+	 * 
+	 */
 	public ServerStatusPanel() throws MalformedURLException {
 		setBackground(ServerConstants.SLATE_GREY);
 		imageLabel = new JLabel();
@@ -24,8 +27,13 @@ public class ServerStatusPanel extends JPanel implements Observer {
 		add(imageLabel);
 	}
 
+	/*
+	 * @param observable
+	 * 
+	 * @param arg
+	 */
 	@Override
-	public void update(Observable o, Object arg) {
+	public void update(Observable observable, Object arg) {
 		String status = (String) arg;
 		if (status.equals(ServerConstants.START)) {
 			imageLabel.setIcon(

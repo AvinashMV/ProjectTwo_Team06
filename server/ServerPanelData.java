@@ -19,6 +19,9 @@ public class ServerPanelData extends JPanel {
 	ServerControlPanel serverControlPanel;
 	JSplitPane splitPane;
 
+	/*
+	 * 
+	 */
 	public ServerPanelData() {
 		setLayout(new GridLayout());
 		setPreferredSize(new Dimension(400, 400));

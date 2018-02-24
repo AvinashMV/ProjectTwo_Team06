@@ -10,6 +10,9 @@ import javax.swing.JPanel;
  */
 public class ServerControlPanel extends JPanel {
 
+	/*
+	 * 
+	 */
 	public ServerControlPanel() {
 		setBackground(ServerConstants.SLATE_GREY);
 		ServerPanelHighest highest = new ServerPanelHighest();
