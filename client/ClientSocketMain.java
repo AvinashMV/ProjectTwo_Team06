@@ -9,9 +9,7 @@ import java.util.concurrent.Executors;
 import javax.swing.JComboBox;
 
 /**
- * Lab 2, Team 6
- * 
- * @author SER 516, Garv Mathur (#72)
+ * @author Team 6
  */
 
 public class ClientSocketMain {
@@ -73,7 +71,7 @@ public class ClientSocketMain {
 
 	private void setData(String msgin) {
 		ArrayList<ArrayList<Integer>> serverData = clientDataManager.getDump();
-		System.out.println("asfsafasfsa");
+		System.out.println("Data receiving...");
 		String[] data = msgin.split(",");
 		for (int i = 0; i < data.length; i++) {
 			serverData.get(i).add(Integer.parseInt(data[i]));
