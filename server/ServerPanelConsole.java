@@ -3,6 +3,7 @@ package server;
 import java.awt.Dimension;
 import java.util.Observable;
 import java.util.Observer;
+
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -10,8 +11,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.Border;
-
-import com.sun.corba.se.spi.activation.Server;
 
 /**
  * The ServerPanelConsole class
