@@ -12,7 +12,7 @@ import javax.swing.border.Border;
 /**
  * The ServerConsolePanel class
  * 
- * @author
+ * @author Team 06
  * @version 1.0
  */
 public class ServerConsolePanel extends JPanel implements Observer {
@@ -33,6 +33,7 @@ public class ServerConsolePanel extends JPanel implements Observer {
 		consoleLogs.setPreferredSize(new Dimension(750, 150));
 		consoleLogs.setBackground(ServerConstants.SLATE_GREY);
 		consoleLogs.setText("Console\n\n\nServer is not running. \n");
+		consoleLogs.setAutoscrolls(true);
 		JScrollPane scroll = new JScrollPane(consoleLogs);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll.setEnabled(true);

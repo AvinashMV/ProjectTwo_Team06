@@ -3,7 +3,7 @@ package server;
 /**
  * The MessageHandler class
  * 
- * @author
+ * @author Team 06
  * @version 1.0
  */
 public class MessageHandler {

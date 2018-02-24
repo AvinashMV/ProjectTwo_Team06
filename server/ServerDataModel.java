@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * The MessageHandler class
+ * The ServerDataModel class
  * 
- * @author
+ * @author Team 06
  * @version 1.0
  */
 public class ServerDataModel {

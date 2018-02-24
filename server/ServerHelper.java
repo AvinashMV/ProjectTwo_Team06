@@ -5,9 +5,9 @@ import java.text.NumberFormat;
 import javax.swing.text.NumberFormatter;
 
 /**
- * The MessageHandler class
+ * The ServerHelper class
  * 
- * @author
+ * @author Team 6
  * @version 1.0
  */
 public class ServerHelper {

@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 /**
  * The ServerControlPanel class
  * 
- * @author
+ * @author Team 06
  * @version 1.0
  */
 public class ServerControlPanel extends JPanel {
@@ -41,47 +41,17 @@ public class ServerControlPanel extends JPanel {
 	}
 
 	void createAndShowGUI() {
-		highestLabel.setFont(ServerConstants.TEXT_FONT);
-		highestLabel.setPreferredSize(ServerConstants.LABEL_DIMENSION);
-		highestValuePanel.setPreferredSize(ServerConstants.TEXT_DIMENSION);
-		highestValuePanel.setBackground(ServerConstants.LIGHT_BLUE);
-		highestValuePanel.setBorder(BorderFactory.createLineBorder(Color.black));
+		setUpHighest();
+		setUpLowest();
+		setUpFrequency();
+	}
 
-		// added text panel where the highest value will go.
-
-		// highestText.setText("1024");
-		highestText.setBorder(BorderFactory.createLineBorder(Color.black));
-		highestText.setBackground(ServerConstants.PINK);
-		highestText.setPreferredSize(ServerConstants.TEXT_DIMENSION);
-		highestText.setEditable(true);
-		this.add(highestValuePanel);
-		highestValuePanel.add(highestLabel);
-		this.add(highestText);
-
-		// lowest
-		lowestLabel.setFont(ServerConstants.TEXT_FONT);
-		lowestLabel.setPreferredSize(ServerConstants.LABEL_DIMENSION);
-		lowestValuePanel.setPreferredSize(ServerConstants.TEXT_DIMENSION);
-		lowestValuePanel.setBackground(ServerConstants.LIGHT_BLUE);
-		lowestValuePanel.setBorder(BorderFactory.createLineBorder(Color.black));
-
-		// lowestText.setText("0");
-		lowestText.setBorder(BorderFactory.createLineBorder(Color.black));
-		lowestText.setBackground(ServerConstants.PINK);
-		lowestText.setPreferredSize(ServerConstants.TEXT_DIMENSION);
-		lowestText.setEditable(true);
-		this.add(lowestValuePanel);
-		lowestValuePanel.add(lowestLabel);
-		this.add(lowestText);
-
-		// frequency
+	private void setUpFrequency() {
 		frequencyLabel.setFont(ServerConstants.TEXT_FONT);
 		frequencyLabel.setPreferredSize(ServerConstants.LABEL_DIMENSION);
 		frequencyValuePanel.setPreferredSize(ServerConstants.TEXT_DIMENSION);
 		frequencyValuePanel.setBackground(ServerConstants.LIGHT_BLUE);
 		frequencyValuePanel.setBorder(BorderFactory.createLineBorder(Color.black));
-
-		// frequencyText.setText("");
 		frequencyText.setBorder(BorderFactory.createLineBorder(Color.black));
 		frequencyText.setBackground(ServerConstants.PINK);
 		frequencyText.setPreferredSize(ServerConstants.TEXT_DIMENSION);
@@ -89,7 +59,35 @@ public class ServerControlPanel extends JPanel {
 		this.add(frequencyValuePanel);
 		frequencyValuePanel.add(frequencyLabel);
 		this.add(frequencyText);
-
 	}
 
+	private void setUpLowest() {
+		lowestLabel.setFont(ServerConstants.TEXT_FONT);
+		lowestLabel.setPreferredSize(ServerConstants.LABEL_DIMENSION);
+		lowestValuePanel.setPreferredSize(ServerConstants.TEXT_DIMENSION);
+		lowestValuePanel.setBackground(ServerConstants.LIGHT_BLUE);
+		lowestValuePanel.setBorder(BorderFactory.createLineBorder(Color.black));
+		lowestText.setBorder(BorderFactory.createLineBorder(Color.black));
+		lowestText.setBackground(ServerConstants.PINK);
+		lowestText.setPreferredSize(ServerConstants.TEXT_DIMENSION);
+		lowestText.setEditable(true);
+		this.add(lowestValuePanel);
+		lowestValuePanel.add(lowestLabel);
+		this.add(lowestText);
+	}
+
+	private void setUpHighest() {
+		highestLabel.setFont(ServerConstants.TEXT_FONT);
+		highestLabel.setPreferredSize(ServerConstants.LABEL_DIMENSION);
+		highestValuePanel.setPreferredSize(ServerConstants.TEXT_DIMENSION);
+		highestValuePanel.setBackground(ServerConstants.LIGHT_BLUE);
+		highestValuePanel.setBorder(BorderFactory.createLineBorder(Color.black));
+		highestText.setBorder(BorderFactory.createLineBorder(Color.black));
+		highestText.setBackground(ServerConstants.PINK);
+		highestText.setPreferredSize(ServerConstants.TEXT_DIMENSION);
+		highestText.setEditable(true);
+		this.add(highestValuePanel);
+		highestValuePanel.add(highestLabel);
+		this.add(highestText);
+	}
 }

@@ -11,7 +11,7 @@ public class ClientStartStop
     {
         try
         {
-            clientsocket = new Socket("localhost", 1516);
+            clientsocket = new Socket("localhost", 1024);
             System.out.println("Connected");
         }
         catch (Exception e)

@@ -3,9 +3,9 @@ package server;
 import java.util.Observable;
 
 /**
- * The MessageHandler class
+ * The MessageObservable class
  * 
- * @author
+ * @author Team 06
  * @version 1.0
  */
 class MessageObservable extends Observable {

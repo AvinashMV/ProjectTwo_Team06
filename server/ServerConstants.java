@@ -5,9 +5,9 @@ import java.awt.Font;
 import java.awt.Dimension;
 
 /**
- * The MessageHandler class
+ * The ServerConstants class
  * 
- * @author
+ * @author Team 06
  * @version 1.0
  */
 public class ServerConstants {

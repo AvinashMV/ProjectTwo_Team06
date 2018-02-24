@@ -10,9 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * The MessageHandler class
+ * The ServerStatusPanel class
  * 
- * @author
+ * @author Team 06
  * @version 1.0
  */
 public class ServerStatusPanel extends JPanel implements Observer {
@@ -47,7 +47,7 @@ public class ServerStatusPanel extends JPanel implements Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		String status = (String) arg;
-		if (status.equals("Start")) {
+		if (status.equals(ServerConstants.START)) {
 			picLabel.setIcon(fetchIcon());
 		} else {
 			picLabel.setIcon(null);
