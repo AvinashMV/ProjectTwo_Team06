@@ -38,7 +38,11 @@ public class ServerPanelTop extends JPanel implements ActionListener {
 		observable.addObserver(MessageHandler.getInstance().getServerPanelConsole());
 	}
 
+
 	/*Setting the start stop action for the starting and stopping connection
+=======
+	/*
+>>>>>>> 99857ee286e6a37db11c31c94fe945d424fe1325
 	 * @args actionEvent
 	 */
 	@Override
@@ -56,7 +60,11 @@ public class ServerPanelTop extends JPanel implements ActionListener {
 	}
 
 	/*
+<<<<<<< HEAD
 	 * Starts the connection between the server and the client
+=======
+	 * 
+>>>>>>> 99857ee286e6a37db11c31c94fe945d424fe1325
 	 */
 	private void startServer() {
 		Runnable runnableTask = () -> {
@@ -64,4 +72,5 @@ public class ServerPanelTop extends JPanel implements ActionListener {
 		};
 		executor.execute(runnableTask);
 	}
+
 }
