@@ -26,16 +26,11 @@ public class ClientSocketMain {
 		this.frequency = frequency;
 		try {
 			s = new Socket("127.0.0.1", 1201);
-
 			din = new DataInputStream(s.getInputStream());
 			dout = new DataOutputStream(s.getOutputStream());
-
 			br = new BufferedReader(new InputStreamReader(System.in));
-
 			String msgin = "", msgout = "";
-
 			String channel = getChannelValue();
-
 			while (!msgin.equals("end")) {
 				dout.writeUTF(channel);
 				msgin = din.readUTF();
@@ -66,12 +61,10 @@ public class ClientSocketMain {
 			};
 			executor.execute(runnableTask);
 		}
-
 	}
 
 	private void setData(String msgin) {
 		ArrayList<ArrayList<Integer>> serverData = clientDataManager.getDump();
-		System.out.println("Data receiving...");
 		String[] data = msgin.split(",");
 		for (int i = 0; i < data.length; i++) {
 			serverData.get(i).add(Integer.parseInt(data[i]));

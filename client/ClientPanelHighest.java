@@ -16,21 +16,21 @@ import javax.swing.JTextPane;
 public class ClientPanelHighest extends JPanel {
 
 	public ClientPanelHighest() {
-		JPanel test = new JPanel();
+		JPanel clientPanel = new JPanel();
 		JLabel highLabel = new JLabel(ClientConstants.HIGHEST_VALUE);
 		highLabel.setFont(ClientConstants.TEXT_FONT);
 		highLabel.setSize(85, 60);
-		test.setPreferredSize(new Dimension(85, 60));
-		test.setBackground(ClientConstants.LIGHT_BLUE);
-		test.setBorder(BorderFactory.createLineBorder(Color.black));
+		clientPanel.setPreferredSize(new Dimension(85, 60));
+		clientPanel.setBackground(ClientConstants.LIGHT_BLUE);
+		clientPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		JTextPane highTxt = new JTextPane();
 		ClientDataManager.getInstance().setHighTxt(highTxt);
 		highTxt.setBorder(BorderFactory.createLineBorder(Color.black));
 		highTxt.setBackground(ClientConstants.PINK);
 		highTxt.setPreferredSize(new Dimension(85, 60));
 		highTxt.setEditable(false);
-		add(test);
-		test.add(highLabel);
+		add(clientPanel);
+		clientPanel.add(highLabel);
 		add(highTxt);
 	}
 
@@ -48,5 +48,4 @@ public class ClientPanelHighest extends JPanel {
 		}
 		return maxValue;
 	}
-
 }

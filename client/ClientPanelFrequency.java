@@ -25,13 +25,11 @@ public class ClientPanelFrequency extends JPanel {
 	public ClientPanelFrequency() {
 		JPanel test = new JPanel();
 		JLabel freqLabel = new JLabel("<html>Frequency<br>(Hz)</html>");
-
 		freqLabel.setFont(new Font("SansSerif", Font.BOLD, 15));
 		freqLabel.setSize(85, 60);
 		test.setPreferredSize(new Dimension(85, 60));
 		test.setBackground(ServerConstants.LIGHT_BLUE);
 		test.setBorder(BorderFactory.createLineBorder(Color.black));
-
 		freqText = new JTextPane();
 		freqText.setBorder(BorderFactory.createLineBorder(Color.black));
 		freqText.setBackground(ServerConstants.PINK);
@@ -41,5 +39,4 @@ public class ClientPanelFrequency extends JPanel {
 		test.add(freqLabel);
 		add(freqText);
 	}
-
 }
